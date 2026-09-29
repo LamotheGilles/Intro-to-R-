@@ -3,17 +3,14 @@
 
 <body bgcolor="FFFFFF">
 
-
 <p>
-<img src="../StatR/MathStats.gif"></p> <p>
+<img src="../MathStats.gif"></p> <p>
 </p><h2><b><center> Introduction to R </center>
 </b></h2>
 
 <p>&nbsp;</p>
 
-<a href="../StatR/Intro_R.html">En français</a>
-
-
+<a href="../video/Intro_R.html">En français</a> 
 
 <p>&nbsp;</p>
 
@@ -32,7 +29,7 @@ Table of Content
 <br>
 <a href="#example3"> Example 3: Descriptive Statistics  </a>
 <br>
-<a href="#example4"> Example 4: R Editor window  </a>
+<a href="#example4"> Example 4: R Editor window  </a>           
 <br>
 <a href="#example5"> Example 5: Importing data from a file  </a>
 <br>
@@ -44,7 +41,7 @@ Table of Content
 <BR>
 <a href="#example9"> Example 9: Assessing Normality (histogram) </a>
 <br>
-<a href="#example10"> Example 10: Assessing Normality (quantile-quantile plot) </a>
+<a href="#example10"> Example 10: Assessing Normality (quantile-quantile plot) </a>      
 <br>
 <a href="#example11"> Example 11: One sample t-test  </a>
 <br>
@@ -135,7 +132,7 @@ Here are a few things you need to know to get started with R
 <p></p>
 <li> can be used as a calculator. Simply enter what you would like to solve and press enter. For example
 <pre>
-> log(5)-2.5^2
+> log(5)-2.5^2 
 [1] -4.640562
 </pre>
 <p> R understands this as the natural log (ln) and not log to the base 10. </p>
@@ -150,13 +147,13 @@ Here are a few things you need to know to get started with R
 <p> We use the quotation marks to tell R that it is a text.</p>
 <p> Note that <code> c </code> is the function for combining. </p>
 <p></p>
-<li> We will create a numerical vector for the blood pressures that were measured. We call this vector <code>BP</code>.
+<li> We will create a numerical vector for the blood pressures that were measured. We call this vector <code>BP</code>. 
 <PRE>
 BP = c(112, 125, 161)
 </PRE>
 <p> The length of this vector is 3. </p> </ul>
 <p></p>
-<li> To display an object like a vector, simply enter the name you assigned to it.
+<li> To display an object like a vector, simply enter the name you assigned to it. 
 <PRE>
 > subject
 [1] "Alice"  "Bob"    "Celine"
@@ -204,18 +201,15 @@ Educational video: <a href="https://www.youtube.com/watch?v=tO1WJ4DLUzw" target=
 <pre> > # I am studying Biostatistics </pre>
 <h5> Binomial Distributions </h5>
 <p> With R, the binomial distribution is called<b> binom. </b> A prefix 'd' or 'p' can be used with binom. </p>
-<li> <b>d</b>binom is the probability mass function (pmf). Its usage is <code>dbinom(x, n, p)</code>, where <code>x</code> is a value in the range
+<li> <b>d</b>binom is the probability mass function (pmf). Its usage is <code>dbinom(x, n, p)</code>, where <code>x</code> is a value in the range 
 of the random variable, <code>n</code> is the number of trials and <code>p</code> is the probability of success.  </li>
 <p> Example: Compute the probability that <i>X=20</i>, where <i>X</i> has a binomial distribution with  n=30 and p=0.75 </p>
-<p> Solution: We have <i>P(X=20)=0.0909</i>. Here is the corresponding R output.
+<p> Solution: We have <i>P(X=20)=0.0909</i>. Here is the corresponding R output. 
 <PRE>
 > dbinom (20, 30, 0.75)
 [1] 0.09086524
 </PRE>
-
-
-
-<p> Suppose now that we want to compute that X is between 20 and 25 (inclusively). We can compute the probability mass for each of the values 20, 21, ..., 25 as follows.
+<p> Suppose now that we want to compute that X is between 20 and 25 (inclusively). We can compute the probability mass for each of the values 20, 21, ..., 25 as follows. 
 <pre>
 >  dbinom (20:25, 30, 0.75)
 [1] 0.09086524 0.12980749 0.15930919 0.16623567 0.14545621 0.10472847
@@ -226,15 +220,12 @@ of the random variable, <code>n</code> is the number of trials and <code>p</code
 > sum(dbinom(20:25, 30, 0.75))
 [1] 0.7964023
 </PRE>
-So  <i>P(20 &le;X &le;25)=0.7964.</i>
-
-<li> <b>p</b>binom is the cumulative distribution function (cdf). To compute <i>P(X &le; 25)</i>, where <i>X</i> has a binomial distribution with <i>n=30</i> and <i>p=0.75</i>, we use:
+<li> <b>p</b>binom is the cumulative distribution function (cdf). To compute <i>P(X &le; 25)</i>, where <i>X</i> has a binomial distribution with <i>n=30</i> and <i>p=0.75</i>, we use: 
 <PRE>
 > pbinom (25, 30, 0.75)
 [1] 0.9021304
 </PRE>
-Thus, <i>P(X &le; 25)=F(25)=0.9021.</i>
-<p> Assuming that we want  <i>P(20 &le; X &le; 25)</i>, we can use the cdf to do the computation. We have <i>P(20 &le; X &le; 25)=F(25)-F(19)=0.7964.</i> Here is the computation with R. 
+<p> Assuming that we want  <i>P(20 &le; X &le; 25)</i>, we can use the cdf to do the computation. 
 <PRE>
 > pbinom (25, 30, 0.75)-pbinom (19, 30, 0.75)
 [1] 0.7964023
@@ -242,47 +233,38 @@ Thus, <i>P(X &le; 25)=F(25)=0.9021.</i>
 <p><b> Notice</b> that we get the same value as the sum of the probability masses for <code>x=20</code> to <code>x=25</code>.
 
 <h5>Normal Distributions</h5>
-<p> The R name given to this distribution is <b>norm.</b></p>
+<p> The R name given to this distribution is <b> norm.</b></p>
 <p> Assuming we are working with a mean of 25 and a standard devation of 5.25, let's compute the probability that our normal distribution would be at most 20, i.e.  <code>P(X &le; 20)</code>.
 
 <BR><BR>
-<li> <b>p</b>norm is the cumulative distribution function. </li> Its usage is <code>pnorm(x, mean, sd)</code>, where mean is the mean of the distribution and sd is the standard deviation of the distribution. 
-</p> We want  <i>P(X &le; 20)=F(20)=0.1705. </i> Here is the  computation with R. 
+<li> <b>p</b>norm is the cumulative distribution function. </li> Its usage is <code>pnorm(x, mean, standard deviation)</code>. </p> We compute  <code>P(X &le; 20)=0.1705. </code>
 <PRE>
->  pnorm(20, 25, 5.25)
+>  pnorm(20, 25, 5.25) 
 [1] 0.1704519
 </PRE>
-<p> Suppose we want P(20<X<25)=F(25)-F(20)=0.3295.  Here is the computation with R. 
+<p> To compute the probability that this normal random variable will fall between 20 and 25, we compute the difference between <code>P(X<25)</code> and <code>P(X< 20)</code>.
 <PRE>
 > pnorm(25, 25, 5.25) - pnorm(20, 25, 5.25)
 [1] 0.3295481
 </PRE>
+Thus, <code>P(20 < X < 25)=0.3295.  </code>
 
 <BR><BR>
 
-<li> <b>q</b>norm is the <b>quantile</b> function. Its usage is <code>qnorm( probability, mean, sd)</code>.
-<p> Say that we are interested in the 5th percentile, that is a value <code>q</code> such that <code>0.05=P(X &le; q)</code>, where <i>X</i> has a normal distribution
-with mean 25 and standard deviation 5.25. We can use the following command.
+<li> <b>q</b>norm is the <b>quantile</b> function. Its usage is <code>qnorm( probability, mean, standard deviation)</code>. 
+<p> Say that we are interested in the 5th percentile, that is a value <code>q</code> such that <code>0.05=P(X &le; q)</code>, where <i>X</i> has a normal distribution 
+with mean 25 and standard deviation 5.25. We can use the following command.  
 <PRE>
 > qnorm(0.05, 25, 5.25)
 [1] 16.36452
 </PRE>
-So the 5th percentile is around 16.36.
-<li> Suppose that we want to compute the first quartile  (which is approximately 21.46) and the third quartile (which is approximately 28.54). That is, we want the 25th percentile and the 75th percentile. We use:
-
-	<pre>
-	> qnorm(0.25,25,5.25)
-	[1] 21.45893
-	> qnorm(0.75,25,5.25)
-	[1] 28.54107
-      </pre>
-
-<li> Suppose that we want the interquartile range, i.e. the distance between the third quartile and the first quartile. We use:
-
-	<pre>
-	> qnorm(0.75,25,5.25) - qnorm(0.25,25,5.25)
-	[1] 7.082142
-       </pre>
+So the 5th percentile is around 16.36. 
+<p> To find the interquartile range, the difference between the 75th percentile (i.e. 3rd quartile) and the 25th percentile (i.e. 1st quartile), 
+we can use the following command. </p>
+<PRE>
+> qnorm(0.75, 25, 5.25) - qnorm(0.25, 25, 5.25)
+[1] 7.082142
+</PRE>
 </p>
 
 
@@ -291,7 +273,7 @@ So the 5th percentile is around 16.36.
 <br>
 
 <a name="example3">
-<h2><b><center>Descriptive Statistics</center></b></h2>
+<h2><b><center>Descriptive Statistics</center></b></h2>     
 
 <BR><BR>
 
@@ -301,7 +283,7 @@ Educational video: <a href="https://www.youtube.com/watch?v=IAhACG4vv-4" target=
 
 <b>Summary of the video:</b>
 <p>These are the list of functions to use when working with Descriptive Statistics in R. The following are some of the functions;</p>
-<li><code>ls()</code> - Used to display a list objects previously defined during the current R session. In the video, we see that an object <code>x</code> existed. To display <code>x</code>,
+<li><code>ls()</code> - Used to display a list objects previously defined during the current R session. In the video, we see that an object <code>x</code> existed. To display <code>x</code>, 
 simply enter <code>x</code> at the prompt. We obtain:
 <pre>
 > x
@@ -325,39 +307,39 @@ simply enter <code>x</code> at the prompt. We obtain:
 <li> <code>sd(x)</code> - for the standard deviation of <code>x</code></li>
 <li> <code>IQR(x)</code> - for the interquartile range of <code>x</code>
 <p> <b>Note:</b> IQR must be written in upper case. </p>
-<li> <code>range(x)</code> - gives a vector the contains two values. In component 1, we have the minimum. In component 2, we have the maximum.
+<li> <code>range(x)</code> - gives a vector the contains two values. In component 1, we have the minimum. In component 2, we have the maximum. 
 <p> For the range defined as the distance between the minimum and the maximum, use the following command (assuming that <code>x</code> is the numerical vector):
-<pre>
-> range(x)[2] - range(x)[1]
+<pre> 
+> range(x)[2] - range(x)[1] 
 </PRE>
 <p> The indicices for the components (here it is 2 and 1) should be put in square brackets. </p>
 <li> <code>sort(x)</code> - arranges the numerical values from smallest to largest </li>
 <li> <code>quantile(x)</code> - to get some percentiles (also known as sample quantiles). Here is an example:
 <pre>
 > quantile(x)
-   0%   25%   50%   75%  100%
-  2.0  10.5  12.5  45.0 125.0
+   0%   25%   50%   75%  100% 
+  2.0  10.5  12.5  45.0 125.0 
 </pre>
 
-We notice that the first quartile is 10.5, the third quartile is 45 and the median is 12.5.
+We notice that the first quartile is 10.5, the third quartile is 45 and the median is 12.5. 
 <BR><BR>
 
-<b>Remark:</b> R does not use, by default, the same formula as us to compute the quartiles. To force R to compute the quartiles as we learned in class, we use <code>quantile(x,type=6)</code>.
-For our example, we get
+<b>Remark:</b> R does not use, by default, the same formula as us to compute the quartiles. To force R to compute the quartiles as we learned in class, we use <code>quantile(x,type=6)</code>. 
+For our example, we get 
 <pre>
 > quantile(x,type=6)
-   0%   25%   50%   75%  100%
-  2.0   9.5  12.5  65.0 125.0
+   0%   25%   50%   75%  100% 
+  2.0   9.5  12.5  65.0 125.0 
 </pre>
 
 
 <p> We can add a second argument to the quantile function to change the order of the quantile. </p>
-<pre>
-> quantile(x, c (0.05, 0.95))
+<pre> 
+> quantile(x, c (0.05, 0.95)) 
 </pre>
 <p> This will give the 5th and 95th percentile of the numerical vector <code>x</code>. </p>
 
-<li> <code>boxplot(x)</code> - to construct a boxplot of the numerical vector <code>x</code>. A boxplot is displayed in the graphics window.
+<li> <code>boxplot(x)</code> - to construct a boxplot of the numerical vector <code>x</code>. A boxplot is displayed in the graphics window. 
 <li> <code>boxplot(x)$out</code> - to display the outliers of the numerical vector <code>x</code>.  </li>
 </ul>
 <p>Keywords: Numerical vector, measures of central tendency, measure of variability, descriptive statistics with R.</p>
@@ -403,14 +385,14 @@ Educational video: <a href="https://www.youtube.com/watch?v=eVGRoxroImE&feature=
 
 <b>Summary of the video:</b>
 <ul>
-<li>We will import data from a tab-delimited text file. We can construct a tab-delimited text file with a spreadsheet, e.g. Excel or Open Office Calc (which is
-free).
-<li> The columns are the variables. The rows are the statistical units. In our first example, we have mother-daughter pairs that are the statistical units.
-We will use two numerical variables to describe the units: the mother's height in cm and the daughter's height in cm.
-<li> We saved the excel worksheet as a tab-delimited text file called MOTHERDAUGHTER.txt.
-<li>With R, use the <code>read.table</code> function to import data from a text file.
-It will create a dataframe object with R.
-Any name can be given to the data frame. In the example below, we will import the data from the following file: <a href="./MOTHERDAUGHTER.txt">MOTHERDAUGHTER.txt.</a><b> [Right-click
+<li>We will import data from a tab-delimited text file. We can construct a tab-delimited text file with a spreadsheet, e.g. Excel or Open Office Calc (which is 
+free). 
+<li> The columns are the variables. The rows are the statistical units. In our first example, we have mother-daughter pairs that are the statistical units. 
+We will use two numerical variables to describe the units: the mother's height in cm and the daughter's height in cm. 
+<li> We saved the excel worksheet as a tab-delimited text file called MOTHERDAUGHTER.txt. 
+<li>With R, use the <code>read.table</code> function to import data from a text file. 
+It will create a dataframe object with R.  
+Any name can be given to the data frame. In the example below, we will import the data from the following file: <a href="./MOTHERDAUGHTER.txt">MOTHERDAUGHTER.txt.</a><b> [Right-click 
 on the file and SAVE AS (on a Mac try CTRL with the mouse click and SAVE AS)]</b>
 <PRE>
 > data = read.table(file.choose(), header=TRUE, sep="\t")
@@ -419,39 +401,39 @@ on the file and SAVE AS (on a Mac try CTRL with the mouse click and SAVE AS)]</b
 <pre>
 <h4>Arguments:</h4></pre>
 <p><code>file.choose()</code>: This forces R to open a window to browse for the document.</p>
-<p><code>header=TRUE</code>: By default, R makes the assumption that the columns in the file are unnamed. That is, the first statistical unit is in the first row.
-However, we will prefer to give names to our variables. To name the variables, we will put the names in the first row of the file. So this argument indicates to R
-that the first row will contain the names of the variables.
+<p><code>header=TRUE</code>: By default, R makes the assumption that the columns in the file are unnamed. That is, the first statistical unit is in the first row. 
+However, we will prefer to give names to our variables. To name the variables, we will put the names in the first row of the file. So this argument indicates to R 
+that the first row will contain the names of the variables. 
 </P>
-<p><code>sep="\t"</code>: By default R uses space to delimit columns. The argument <code>sep="\t"</code> is to use tabulations (tabs) to delimit the columns.
-<li> When the command is entered, a window opens so that we can browse for the file. Select the file and click on  <b>open</b>. Now, the data has been imported
-with R. </p>
+<p><code>sep="\t"</code>: By default R uses space to delimit columns. The argument <code>sep="\t"</code> is to use tabulations (tabs) to delimit the columns. 
+<li> When the command is entered, a window opens so that we can browse for the file. Select the file and click on  <b>open</b>. Now, the data has been imported 
+with R. </p> 
 </ul>
 
 <h3>Working with the dataframe ...</h3></pre>
-<ul><li> We can verify that <code>data</code> is a data frame.
+<ul><li> We can verify that <code>data</code> is a data frame. 
 <pre>
 > is.data.frame(data)
 [1] TRUE
 </pre>
 
-R displays TRUE, so <code>data</code> is a data frame, i.e. a table with the statistical units in the rows and the variables in the columns.
+R displays TRUE, so <code>data</code> is a data frame, i.e. a table with the statistical units in the rows and the variables in the columns. 
 <li> We use the function <code>names</code> to display the names of the columns. Below, we display the names of the columns for the dataframe <code>data</code>:
 <pre>
 > names(data)
-[1] "Daughter" "Mother"
+[1] "Daughter" "Mother"  
 </pre>
 
 We observe that there are two columns. They are called: "Daughter" and "Mother".
 
-<li> To access a column in a dataframe (without spaces), we use the name of the dataframe with a dollar sign followed by the name of the column. Below, we display the column called "Daughter"
+<li> To access a column in a dataframe (without spaces), we use the name of the dataframe with a dollar sign followed by the name of the column. Below, we display the column called "Daughter" 
 from the dataframe <code>data</code>:
 <pre>
 > data$Daughter
  [1] 160 165 156 169 152 156 162 156 161 160 164 162
-</PRE>
+</PRE> 
 
-We could also access the column with its index instead of its name.
+We could also access the column with its index instead of its name. 
 
 <pre>
 > data[,1]
@@ -472,21 +454,21 @@ The second column is called "Mother", so here we use the name to access the 2nd 
  [1] 163 165 162 161 161 160 164 159 164 161 163 168
 </PRE>
 
-<li> Here we use the function <code>summary</code> to display some descriptive statistics for the heights of the mothers.
+<li> Here we use the function <code>summary</code> to display some descriptive statistics for the heights of the mothers. 
 
 <pre>
 > summary(data$Mother)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   159.0   161.0   162.5   162.6   164.0   168.0
 </pre>
 
-Here we use the function <code>boxplot</code> to display comparative boxplots for the heights of the mothers and the heights of the daughters.
+Here we use the function <code>boxplot</code> to display comparative boxplots for the heights of the mothers and the heights of the daughters. 
 
 <pre>
 > boxplot(data$Mother,data$Daughter,names=c("Mothers","Daughters"))
-</pre>
+</pre>  
 
-Here is the corresponding diagram.
+Here is the corresponding diagram. 
 
 <center>
 <img src="./Mother.png" alt="Mother-Daughter Boxplots">
@@ -495,8 +477,8 @@ Here is the corresponding diagram.
 </ul>
 
 
-<ul><li> We will now discuss a second example. In our Excel worksheet, the rows represent the statistical units which is a head of lettuce. We will describe the units with two variables that
-are a numerical variable which is the dry weight of the lettuce and a categorical variable which identifies the competition status of the lettuce. The lettuce was either in competition with
+<ul><li> We will now discuss a second example. In our Excel worksheet, the rows represent the statistical units which is a head of lettuce. We will describe the units with two variables that 
+are a numerical variable which is the dry weight of the lettuce and a categorical variable which identifies the competition status of the lettuce. The lettuce was either in competition with 
 spinach or not in competition.
 <li> We saved the excel worksheet as a tab-delimited text file called lettuce.txt.
 <li>With R, use the <code>read.table</code> function to import data from a text file.
@@ -507,7 +489,7 @@ on the file and SAVE AS (on a Mac try CTRL with the mouse click and SAVE AS)]</b
 > lettuce = read.table(file.choose(), header=TRUE, sep="\t")
 </PRE>
 
-We called the dataframe <code>lettuce</code>.
+We called the dataframe <code>lettuce</code>. 
 
 <li> We now display the names of the columns:
 <pre>
@@ -515,15 +497,15 @@ We called the dataframe <code>lettuce</code>.
 [1] "dry.weight" "status"
 </pre>
 
-Note that there are two columns. Furthermore, notice that R put a dot in the name "dry.weight". R will replace symbols (like a space) that are not permitted in names of variables with dots.
-<li> Below, we compute the mean of the dry weight for all lettuce.
+Note that there are two columns. Furthermore, notice that R put a dot in the name "dry.weight". R will replace symbols (like a space) that are not permitted in names of variables with dots. 
+<li> Below, we compute the mean of the dry weight for all lettuce. 
 
 <PRE>
 > mean(lettuce$dry.weight)
 [1] 0.02808667
  </pre>
 
-Here we have two groups of lettuce, those in competition with spinach and those that were not in competition. We will compute the mean of the dry weight for each group with the function
+Here we have two groups of lettuce, those in competition with spinach and those that were not in competition. We will compute the mean of the dry weight for each group with the function 
 <code>aggregate</code> and a <code>formula</code> notation.
 
 <pre>
@@ -535,9 +517,9 @@ Here we have two groups of lettuce, those in competition with spinach and those 
 
 
 <h4>Arguments:</h4>
-<ul><li> In the first argument, we use a formula notation that indicates that we want the "dry.weight" according to the levels of "status".
-<li> In the second argument, we put the name of the dataframe. In this case, it is <code>lettuce</code>.
-<li> In the third argument, we give the name of the function that we was evaluated. In this case, we want the mean for each group.
+<ul><li> In the first argument, we use a formula notation that indicates that we want the "dry.weight" according to the levels of "status". 
+<li> In the second argument, we put the name of the dataframe. In this case, it is <code>lettuce</code>. 
+<li> In the third argument, we give the name of the function that we was evaluated. In this case, we want the mean for each group. 
 </ul>
 
 We now compute the standard deviation for each group.
@@ -549,14 +531,14 @@ We now compute the standard deviation for each group.
 2  With Spinach 0.008567676
 </pre>
 
-<li> We can also use the formula notation with the <code>boxplot</code> function.
+<li> We can also use the formula notation with the <code>boxplot</code> function. 
 
-<pre>
+<pre> 
 > boxplot(dry.weight~status,lettuce)
 </pre>
 
-The above command will produce comparative boxplots of the dry weight according to status. In the second argument, we give the name of the dataframe. The above command produced the following
-boxplots.
+The above command will produce comparative boxplots of the dry weight according to status. In the second argument, we give the name of the dataframe. The above command produced the following 
+boxplots. 
 
 <center>
 <img src="./LettuceBox.png" alt="Dry Weight according to Competition Status Boxplots">
@@ -580,32 +562,32 @@ Educational video: <a href="https://www.youtube.com/watch?v=QXlVUfuCNlw&feature=
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li>
+<ul><li> 
 
-Suppose that  <code>x</code> is a numerical vector. To build a histogram for <code>x</code>, we use the command <code>hist(x)</code> and for a boxplot, we use the command <code>boxplot(x)</code>.
-<li> For our example, we will import data from the file <a href="./SURVIVALTIMES.txt">SURVIVALTIMES.txt</a> by using the function
-<code>read.table</code>.
+Suppose that  <code>x</code> is a numerical vector. To build a histogram for <code>x</code>, we use the command <code>hist(x)</code> and for a boxplot, we use the command <code>boxplot(x)</code>. 
+<li> For our example, we will import data from the file <a href="./SURVIVALTIMES.txt">SURVIVALTIMES.txt</a> by using the function 
+<code>read.table</code>. 
 
 <pre>
-> data = read.table(file.choose(),header=TRUE,sep="\t")
+> data = read.table(file.choose(),header=TRUE,sep="\t") 
 > names(data)
 [1] "Survival.Times..in.months."
 </pre>
 
-<b>Comments:</b>
+<b>Comments:</b> 
 <ul><li> We build a dataframe with R. The name of the dataframe is <code>donnees</code> and the dataframe has one column called "Survival.Times..in.months.".
 <li> To refer to this column, we use <code>data$Survival.Times..in.months.</code>
-<li> To see the number of columns and the number of rows in the dataframe, we use:
+<li> To see the number of columns and the number of rows in the dataframe, we use: 
 <pre>
 > ncol(data)
 [1] 1
 > nrow(data)
 [1] 250
 </pre>
-So the dataframe called <code>data</code> has 1 column and 250 rows (for the 250 patients).
+So the dataframe called <code>data</code> has 1 column and 250 rows (for the 250 patients). 
 </ul>
 
-<li> The command to build the histogram for the survival time is
+<li> The command to build the histogram for the survival time is 
 <pre>
 > hist(donnees$Temps.de.survie..en.mois.)
 </pre>
@@ -625,10 +607,10 @@ xlab="Survival Time (in months)",ylab="Frequency",
 main="Distribution of the Survival Time")
 </pre>
 
-Here is the result.
+Here is the result. 
 
 <center>
-<img src="./SurvivalHistNice.png" alt="Histogram of the survival time">
+<img src="./SurvivalHistNice.png" alt="Histogram of the survival time">                                         
 </center>
 
 <li> We can build a boxplot with the function  <CODE>boxplot</code>. Consider the following command:
@@ -637,22 +619,22 @@ Here is the result.
 boxplot(data$Survival.Times..in.months.,ylab="Survival Time (in months)")
 </pre>
 
-Here is the result.
+Here is the result. 
 
 <center>
 <img src="./SurvivalBox.png" alt="Boxplot of the survival time">
 </center>
 
-<b>Comment:</b> R computes quartiles differently than us. Our formula for the quartiles is a quantile of type 6 with R.
-We have defined a function with R that builds a boxplot with quantiles of type 6.
-The function is in the file <a href="./plots.r">plots.r</a>. Save the file, we will need to source the file with R
-to use the function. Here is the command to source the file:
+<b>Comment:</b> R computes quartiles differently than us. Our formula for the quartiles is a quantile of type 6 with R. 
+We have defined a function with R that builds a boxplot with quantiles of type 6. 
+The function is in the file <a href="./plots.r">plots.r</a>. Save the file, we will need to source the file with R 
+to use the function. Here is the command to source the file: 
 
 <pre>
 > source(file.choose())
 </pre>
 
-R will open a window and we will select the file <code>plots.r</code>. To verify that the file has been properly sourced,
+R will open a window and we will select the file <code>plots.r</code>. To verify that the file has been properly sourced, 
 consider the following command:
 
 <pre>
@@ -660,9 +642,9 @@ consider the following command:
 function(x, ...)  UseMethod("BoxPlot")
 </pre>
 
-If we see <code>function(x, ...)  UseMethod("BoxPlot")</code>, after entering <code>BoxPlot</code> at the prompt,
-then we have access to the function <code>BoxPlot</code>.
-We use the function <code>BoxPlot</code> just like the function <code>boxplot</code>. But,  <code>BoxPlot</code> uses quantiles of type 6.
+If we see <code>function(x, ...)  UseMethod("BoxPlot")</code>, after entering <code>BoxPlot</code> at the prompt, 
+then we have access to the function <code>BoxPlot</code>. 
+We use the function <code>BoxPlot</code> just like the function <code>boxplot</code>. But,  <code>BoxPlot</code> uses quantiles of type 6. 
 
 </ul>
 
@@ -685,9 +667,9 @@ Educational video: <a href="https://www.youtube.com/watch?v=jmCAev_Xx8c&feature=
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> We consider two ways to input the data into the boxplot functions: (i) we have the data in different numerical vectors; (ii) we imported the
-data from a file and constructed a dataframe of the data.
-<li> With our first example, we assume that we have at least two groups of numerical values that we would like to compare. In the example, we have
+<ul><li> We consider two ways to input the data into the boxplot functions: (i) we have the data in different numerical vectors; (ii) we imported the 
+data from a file and constructed a dataframe of the data. 
+<li> With our first example, we assume that we have at least two groups of numerical values that we would like to compare. In the example, we have 
 three groups. We will construct a numerical vector for each group.
 <pre>
 > x=c(12,13,24,56,100,45,67,45,34,23)
@@ -695,14 +677,14 @@ three groups. We will construct a numerical vector for each group.
 > z=c(12,34,56,34,99,98,65,34,23,11,10,9,23,65)
 </pre>
 
-We are now ready to build comparative boxplots with the <code>boxplot</code> function.
+We are now ready to build comparative boxplots with the <code>boxplot</code> function. 
 <pre>
 > boxplot(x,y,z)
 </pre>
 
-<b>Remark:</b> R will call the groups 1, 2, and 3, respectively. We can modify the names of the groups with the <code>names</code>
-argument. We can also add a label to the vertical axis with the <code>ylab</code> argument. Here is the command that we used to produce the comparative
-boxplots that are found below.
+<b>Remark:</b> R will call the groups 1, 2, and 3, respectively. We can modify the names of the groups with the <code>names</code> 
+argument. We can also add a label to the vertical axis with the <code>ylab</code> argument. Here is the command that we used to produce the comparative 
+boxplots that are found below. 
 
 <pre>
 boxplot(x,y,z,names=c("Group 1","Group 2","Group 3"), ylab="Height (in cm)")
@@ -713,9 +695,9 @@ boxplot(x,y,z,names=c("Group 1","Group 2","Group 3"), ylab="Height (in cm)")
 </center>
 
 
-<li>  R computes quartiles differently than us. Our formula for the quartiles is a quantile of type 6 with R.
+<li>  R computes quartiles differently than us. Our formula for the quartiles is a quantile of type 6 with R. 
 We have defined a function with R that builds a boxplot with quantiles of type 6.
-The function is in the file <a href="./plots.r">plots.r</a>. Save the file, we will need to source the file with R
+The function is in the file <a href="./plots.r">plots.r</a>. Save the file, we will need to source the file with R 
 to use the function. Here is the command to source the file:
 
 <pre>
@@ -726,7 +708,7 @@ to use the function. Here is the command to source the file:
 > source(file.choose())
 </pre>
 
-R will open a window and we will select the file <code>plots.r</code>. To verify that the file has been properly sourced,
+R will open a window and we will select the file <code>plots.r</code>. To verify that the file has been properly sourced, 
 consider the following command:
 
 <pre>
@@ -734,51 +716,51 @@ consider the following command:
 function(x, ...)  UseMethod("BoxPlot")
 </pre>
 
-If we see <code>function(x, ...)  UseMethod("BoxPlot")</code>, after entering <code>BoxPlot</code> at the prompt,
+If we see <code>function(x, ...)  UseMethod("BoxPlot")</code>, after entering <code>BoxPlot</code> at the prompt, 
 then we have access to the function <code>BoxPlot</code>.
 We use the function <code>BoxPlot</code> just like the function <code>boxplot</code>. But,  <code>BoxPlot</code> uses quantiles of type 6.
 
-<li> In our next example, we will import the data from the tab-delimited text file : <a href="./weather2007.txt">weather2007.txt</a>. We start by
-creating a dataframe that we will call <code>data</code>.
+<li> In our next example, we will import the data from the tab-delimited text file : <a href="./weather2007.txt">weather2007.txt</a>. We start by 
+creating a dataframe that we will call <code>data</code>. 
 
 <pre>
 > data = read.table(file.choose(),header=TRUE,sep="\t")
 </pre>
 
 <b>Remarks:</b>
-<ul><li> A dataframe is a table of values. The rows are the statistical units (in this case they are the days of the year 2007). Here we display the
-number of rows in the data frame.
+<ul><li> A dataframe is a table of values. The rows are the statistical units (in this case they are the days of the year 2007). Here we display the 
+number of rows in the data frame. 
 
 <pre>
 > nrow(data)
 [1] 365
-<li>
+<li> 
 
-We see that there is a row for each of the 365 days of the year 2007. We use variables to describe the units. The variables are in the columns. In the
-above command, we used <code>header=TRUE</code> to indicate to R that in the file, we put the names of the columns in the first row. We use the
-function <code>names</code> to display the names of the columns.
+We see that there is a row for each of the 365 days of the year 2007. We use variables to describe the units. The variables are in the columns. In the 
+above command, we used <code>header=TRUE</code> to indicate to R that in the file, we put the names of the columns in the first row. We use the 
+function <code>names</code> to display the names of the columns. 
 
 <pre>
 > names(data)
-[1] "Avg.Temp...C."  "Avg.Temp...F."  "Avg.Wind..mph." "Precip..in."    "Day"            "Month"
-[7] "Season"
+[1] "Avg.Temp...C."  "Avg.Temp...F."  "Avg.Wind..mph." "Precip..in."    "Day"            "Month"         
+[7] "Season"    
 </pre>
 
-We observe that there are 7 columns.
+We observe that there are 7 columns. 
 </ul>
 
-<li> Assume that we have a numerical variable <code>y</code> and a group variable <code>x</code> in the dataframe <code>data</code>.
-To produce side-by-side boxplots for y according to the levels of x, we use
+<li> Assume that we have a numerical variable <code>y</code> and a group variable <code>x</code> in the dataframe <code>data</code>. 
+To produce side-by-side boxplots for y according to the levels of x, we use 
 <pre>
 boxplot(y~x,data)
 </pre>
 
-<li> We are now ready to build the comparative boxplots of the average wind speed according to the month.
+<li> We are now ready to build the comparative boxplots of the average wind speed according to the month. 
 <pre>
 boxplot(Avg.Wind..mph.~Month,data)
 </pre>
 
-We add labels to the axes with the <code>ylab</code> and <code>xlab</code> arguments. Here is the command and the corresponding comparative boxplots.
+We add labels to the axes with the <code>ylab</code> and <code>xlab</code> arguments. Here is the command and the corresponding comparative boxplots. 
 
 <pre>
 boxplot(Avg.Wind..mph.~Month,data,ylab="Average Wind Speed (in mph)",xlab="Month")
@@ -788,8 +770,8 @@ boxplot(Avg.Wind..mph.~Month,data,ylab="Average Wind Speed (in mph)",xlab="Month
 <img src="./SideWindBox.png" alt="Side-by-side boxplots of average wind speed according to month">
 </center>
 
-<b>Remark:</b> Assuming that we sourced the file <code>plots.r</code>, then we could use the function <code>BoxPlot</code> in exact same way as the
-function <code>boxplot</code> except that the quartiles would be based on quantiles of type 6.
+<b>Remark:</b> Assuming that we sourced the file <code>plots.r</code>, then we could use the function <code>BoxPlot</code> in exact same way as the 
+function <code>boxplot</code> except that the quartiles would be based on quantiles of type 6. 
 
 <pre>
 BoxPlot(Avg.Wind..mph.~Month,data,ylab="Average Wind Speed (in mph)",xlab="Month")
@@ -813,7 +795,7 @@ Educational video: <a href="https://www.youtube.com/watch?v=yX5FVN5p-n4&feature=
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> Let <i>x</i> and <i>y</i> be numerical vectors in R with the same number of components.
+<ul><li> Let <i>x</i> and <i>y</i> be numerical vectors in R with the same number of components. 
 Let <i>a</i> be a scalar (i.e. a real number).
 <br><br>
 <b>Remark:</b> Most operations on a numerical variable are defined component-wise (i.e. component-by-component).
@@ -833,11 +815,11 @@ abs(x)     # apply the absolute value to each component
 Here are two useful functions:
 
 <pre>sum(x)       # the sum of the components of x
-length(x)    # returns the number of components
+length(x)    # returns the number of components 
 </pre>
 
-<li> We start by constructing two numerical vectors of equal size (i.e. same number of components) and also by constructing a scalar (i.e. a numerical
-vector of length 1).
+<li> We start by constructing two numerical vectors of equal size (i.e. same number of components) and also by constructing a scalar (i.e. a numerical 
+vector of length 1). 
 
 <pre>
 > x = c(10,100,2,5,16)
@@ -845,8 +827,8 @@ vector of length 1).
 > a= 2
 </pre>
 
-We can use the function <code>length</code>. We observe that both <code>x</code> and <code>y</code> are of length 5 (i.e. each have 5 components) and
-<code>a</code> is of length 1.
+We can use the function <code>length</code>. We observe that both <code>x</code> and <code>y</code> are of length 5 (i.e. each have 5 components) and 
+<code>a</code> is of length 1. 
 
 <pre>
 > length(x)
@@ -858,7 +840,7 @@ We can use the function <code>length</code>. We observe that both <code>x</code>
 </pre>
 
 
-<li> The vector <code>a</code> is a vector of length 1. We can verify that it is indeed a numerical vector.
+<li> The vector <code>a</code> is a vector of length 1. We can verify that it is indeed a numerical vector. 
 
 <pre>
 > is.vector(a)
@@ -867,8 +849,8 @@ We can use the function <code>length</code>. We observe that both <code>x</code>
 [1] TRUE
 </pre>
 
-<li> With vectors of equal size, i.e. same number of components, we can add them, multiply them and divide one by the other. The operations are done
-component-wise, i.e. component by component.
+<li> With vectors of equal size, i.e. same number of components, we can add them, multiply them and divide one by the other. The operations are done 
+component-wise, i.e. component by component. 
 
 <pre>
 > x
@@ -885,8 +867,8 @@ component-wise, i.e. component by component.
 [1]  10 Inf  -1   5 Inf
 </pre>
 
-<li> We can also add a scalar with a vector. The result will be the scalar that is added to each component of the vector. We can also multiply a
-scalar with a vector and divide a scalar from a vector. All of these operations are done component-wise.
+<li> We can also add a scalar with a vector. The result will be the scalar that is added to each component of the vector. We can also multiply a 
+scalar with a vector and divide a scalar from a vector. All of these operations are done component-wise. 
 
 <pre>
 > a
@@ -904,7 +886,7 @@ scalar with a vector and divide a scalar from a vector. All of these operations 
 </pre>
 
 <li> We can also use <code>abs</code> that computes the absolute value on each component of a vector. Similarly, <code>sqrt</code> and </code>log</code>
-give the square root and the natural logarithm (i.e. log to the base e) of each component of a vector.
+give the square root and the natural logarithm (i.e. log to the base e) of each component of a vector. 
 
 <pre>
 > y
@@ -919,7 +901,7 @@ give the square root and the natural logarithm (i.e. log to the base e) of each 
 [1]  3.162278 10.000000  1.414214  2.236068  4.000000
 </pre>
 
-We can also compute powers. <code>x^2</code> computes the square of each component of x.
+We can also compute powers. <code>x^2</code> computes the square of each component of x. 
 <pre>
 > x
 [1]  10 100   2   5  16
@@ -931,18 +913,18 @@ We can also compute powers. <code>x^2</code> computes the square of each compone
 [1] 1 0 4 1 0
 </pre>
 
-<li> Let us compute the sample variance of <code>x</code> by using the above operations and verify that it computes the same as the var() function.
+<li> Let us compute the sample variance of <code>x</code> by using the above operations and verify that it computes the same as the var() function. 
 <BR><BR>
-By definition, the sample variance is the sum of the squared deviations away from the mean which is divided by n-1, where n is the sample size.
-<BR><BR>
-We will start by computing the deviations away from the mean, i.e. we will substract the sample mean from each value in the sample.
+By definition, the sample variance is the sum of the squared deviations away from the mean which is divided by n-1, where n is the sample size. 
+<BR><BR> 
+We will start by computing the deviations away from the mean, i.e. we will substract the sample mean from each value in the sample. 
 
 <pre>
 > x-mean(x)
 [1] -16.6  73.4 -24.6 -21.6 -10.6
 </pre>
 
-We now square the deviations away from the mean.
+We now square the deviations away from the mean. 
 <pre>
 > (x-mean(x))^2
 [1]  275.56 5387.56  605.16  466.56  112.36
@@ -954,14 +936,14 @@ We now compute the sum of the squared deviations away from the mean.
 [1] 6847.2
 </pre>
 
-We now need to divide this sum by n-1.
+We now need to divide this sum by n-1. 
 
 <pre>
 > sum((x-mean(x))^2)/(length(x)-1)
 [1] 1711.8
 </pre>
 
-So the sample variance is 1711.8. We will now use the function <code>var()</code> to verify that it does compute the sample variance.
+So the sample variance is 1711.8. We will now use the function <code>var()</code> to verify that it does compute the sample variance. 
 
 <pre>
 > var(x)
@@ -981,19 +963,19 @@ So the sample variance is 1711.8. We will now use the function <code>var()</code
 
 <BR><BR>
 
-Educational video: <a href="https://www.youtube.com/watch?v=AgUkULetJnI&feature=youtu.be" target="_blank">Overlay of a normal density onto a density
+Educational video: <a href="https://www.youtube.com/watch?v=AgUkULetJnI&feature=youtu.be" target="_blank">Overlay of a normal density onto a density 
 histogram</a>
 
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> We learn to overlay a normal probability density function onto a probablity histogram.
-<li> Let <code>nv</code> be a numerical vector. Then, <code>hist(nv)</code> produces a frequency histogram for this numerical vector. To get a
-density histogram, we use <code>hist(nv,prob=TRUE)</code>. (It gives a histogram where the total area of the rectangles is 1.)
-<li> For large samples, the density histogram is an estimate of the true probability density function. It is a good estimate for large samples.
+<ul><li> We learn to overlay a normal probability density function onto a probablity histogram. 
+<li> Let <code>nv</code> be a numerical vector. Then, <code>hist(nv)</code> produces a frequency histogram for this numerical vector. To get a 
+density histogram, we use <code>hist(nv,prob=TRUE)</code>. (It gives a histogram where the total area of the rectangles is 1.) 
+<li> For large samples, the density histogram is an estimate of the true probability density function. It is a good estimate for large samples. 
 (Note: A histogram is not a good estimate of the underlying probability density for small samples.)
 <li> For our example, we will import data from the file <a href="./cricket.txt">cricket.txt</a> by using the function
-<code>read.table</code> and we display the names of the columns.
+<code>read.table</code> and we display the names of the columns. 
 
 <pre>
 > data = read.table(file.choose(),header=TRUE,sep="\t")
@@ -1001,8 +983,8 @@ density histogram, we use <code>hist(nv,prob=TRUE)</code>. (It gives a histogram
 [1] "Length"
 </pre>
 
-We observe that there is one column that is called "Length". It represents the length of a song in minutes. We verify that there is indeed only one
-column and compute the number of rows in the dataframe.
+We observe that there is one column that is called "Length". It represents the length of a song in minutes. We verify that there is indeed only one 
+column and compute the number of rows in the dataframe. 
 
 <pre>
 > ncol(data)
@@ -1011,7 +993,7 @@ column and compute the number of rows in the dataframe.
 [1] 51
 </pre>
 
-So there are 51 rows. These are the statistical units. In this case, they are male crickets. To display the 51 lengths of songs, we enter the name of
+So there are 51 rows. These are the statistical units. In this case, they are male crickets. To display the 51 lengths of songs, we enter the name of 
 the column at the prompt. Remember: To access a column in a dataframe, we use the (name of the dataframe)$(name of the variable). Here is an example:
 
 <pre>
@@ -1022,10 +1004,10 @@ the column at the prompt. Remember: To access a column in a dataframe, we use th
 [46]  2.2  1.4 14.1  8.6  3.7  3.5
 </pre>
 
-What are the numbers in the square brackets? These are the indices for the first values in the row that is displayed. For example, we see the valeu
-2.2 that is beside [46]. This means that 2.2 is the value in the 46th row in that column.
+What are the numbers in the square brackets? These are the indices for the first values in the row that is displayed. For example, we see the valeu 
+2.2 that is beside [46]. This means that 2.2 is the value in the 46th row in that column.  
 
-<li> Here are commands to produce a density histogram with an overlay of a normal density. We start by building the density histogram for the length
+<li> Here are commands to produce a density histogram with an overlay of a normal density. We start by building the density histogram for the length 
 of a song:
 
 <pre>
@@ -1035,11 +1017,11 @@ hist(log(data$Length),prob=TRUE,xlab="Length of a song (in log(minutes))", main=
 
 <pre>
 curve(dnorm(x,mean(data$Length),sd(data$Length)),add=TRUE)
-</pre>
+</pre>     
 
 Note: that <code>dnorm</code> stands for normal density. We need to also give R the mean and the standard deviation as arguments in the function
 <code>dnorm</code>. Since in general, we usually do not know the mean and the standard deviation of the population, we will use estimates. That is, we
-will use the sample mean and the sample standard deviation for our numerival vector.
+will use the sample mean and the sample standard deviation for our numerival vector. 
 
 <BR><BR>
 
@@ -1078,7 +1060,7 @@ Educational video: <a href="https://www.youtube.com/watch?v=ZDwLR_4YAHo&feature=
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> Consider the following three numerical vectors. For each, we would like to know if it is reasonable to assume that it is a random sample from a normal population.
+<ul><li> Consider the following three numerical vectors. For each, we would like to know if it is reasonable to assume that it is a random sample from a normal population. 
 
 <pre>
 x=c(15.0, 15.3, 16.1,  5.4, 14.7, 14.7, 14.6, 13.8, 14.0, 14.6, 16.3, 18.6, 15.3, 15.3, 15.7, 10.7, 12.9, 15.3, 13.7, 14.1, 13.7,14.8, 16.8, 16.2, 16.0)
@@ -1086,48 +1068,48 @@ y=c(11.7,  9.4, 11.0,  9.6,  6.2,  7.4, 12.6,8.2,  9.1,  9.7,  9.6, 11.6,  9.5, 
 w=c(30.1, 30.1, 37.8, 38.3, 34.5, 31.9, 41.2,30.3, 30.0, 30.1, 34.7, 30.8, 30.7, 33.4,30.7, 30.2, 34.0, 33.7, 31.9, 30.7)
 </pre>
 
-<li> We will use the function <code>qqnorm</code> to build a quantile-quantile plot to assess normality. The following commands were used to build
-a quantile-quantile plot for <code>y</code> and to overlay a line onto the plot. We use the mean as the intercept and the standard deviation as the slope of the line.
+<li> We will use the function <code>qqnorm</code> to build a quantile-quantile plot to assess normality. The following commands were used to build 
+a quantile-quantile plot for <code>y</code> and to overlay a line onto the plot. We use the mean as the intercept and the standard deviation as the slope of the line. 
 
 <pre>
 > qqnorm(y)
 > abline(mean(y),sd(y))
 </pre>
 
-Here is the corresponding qq-plot. There is a linear tendency in the qq-plot with a small deviation in the tail, so it is reasonable to assume that it is a sample from normal
-population.
+Here is the corresponding qq-plot. There is a linear tendency in the qq-plot with a small deviation in the tail, so it is reasonable to assume that it is a sample from normal 
+population. 
 
 <center>
 <img src="./QQy.png" alt="Quantile-quantile plot for y">
 </center>
+  
 
-
-<b>Remarks:</b>
-<ul><li>
-Let us try to understand the construction of the qq-plot. On the vertical axis, we have the sample quantiles (i.e. our n observations). They each will have a
-percentile rank. With that percentile rank, we find the corresponding quantile from a standard normal distribution. Consider the following summary statistics for y.
+<b>Remarks:</b> 
+<ul><li> 
+Let us try to understand the construction of the qq-plot. On the vertical axis, we have the sample quantiles (i.e. our n observations). They each will have a 
+percentile rank. With that percentile rank, we find the corresponding quantile from a standard normal distribution. Consider the following summary statistics for y. 
 
 <pre>
 > summary(y)
-   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
   6.100   8.875   9.600   9.660  11.150  12.600
 </pre>
 
-
-The 50th percentile for our sample is 9.66. But the 50th percentile for a standard normal is z=0. So we correspond 9.66 on the vertical axis with 0 on the horizontal axis.
-The 25th percentile for our sample is 8.875. But the 25th percentile for a standard normal is about z=-0.674.  So we correspond 8.875 on the vertical axis with -0.674 on the
-horizontal axis. And so on.
+ 
+The 50th percentile for our sample is 9.66. But the 50th percentile for a standard normal is z=0. So we correspond 9.66 on the vertical axis with 0 on the horizontal axis. 
+The 25th percentile for our sample is 8.875. But the 25th percentile for a standard normal is about z=-0.674.  So we correspond 8.875 on the vertical axis with -0.674 on the 
+horizontal axis. And so on. 
 
 <pre>
 > qnorm(0.25,0,1)
 [1] -0.6744898
 </pre>
 
-<li> If we have a sample from a normal population, then we should expect to see a linear tendency in the plot (with possibly a small deviation in the tail). If we do not see a
-linear tendency in the plot, then it is not reasonable to assume that the corresponding numerical vector is a random sample from a normal population.
+<li> If we have a sample from a normal population, then we should expect to see a linear tendency in the plot (with possibly a small deviation in the tail). If we do not see a 
+linear tendency in the plot, then it is not reasonable to assume that the corresponding numerical vector is a random sample from a normal population. 
 
-<li> Here are the commands to build a qq-plot for <code>x</code>. We observe a deviation from the line in the plot. So it is not reasonable to assume that <code>x</code> is a
-sample from a normal population.
+<li> Here are the commands to build a qq-plot for <code>x</code>. We observe a deviation from the line in the plot. So it is not reasonable to assume that <code>x</code> is a 
+sample from a normal population. 
 
 <pre>
 > qqnorm(x)
@@ -1138,21 +1120,21 @@ sample from a normal population.
 <center>
 <img src="./QQx.png" alt="Quantile-quantile plot for x">
 </center>
-
-<li> Here are the commands to build a qq-plot for <code>w</code>. We observe a curvilinear tendency in the plot.
-So it is not reasonable to assume that <code>w</code> is a sample from a normal population.
-
+ 
+<li> Here are the commands to build a qq-plot for <code>w</code>. We observe a curvilinear tendency in the plot. 
+So it is not reasonable to assume that <code>w</code> is a sample from a normal population. 
+  
 <pre>
 > qqnorm(w)
 > abline(mean(w),sd(w))
-</pre>
+</pre>   
 
 
 <center>
 <img src="./QQw.png" alt="Quantile-quantile plot for w">
 </center>
 
-If we look the histogram for <code>w</code>, we observe that its distribution is highly skewed.
+If we look the histogram for <code>w</code>, we observe that its distribution is highly skewed. 
 
 <center>
 <img src="./Histw.png" alt="Histogram for w">
@@ -1162,10 +1144,10 @@ If we look the histogram for <code>w</code>, we observe that its distribution is
 </ul>
 
 
-<li> Consider the data from the following tab-delimited file: <a href="./methadone.txt">methadone.txt</a>.
-We assign the data to a dataframe called <pre>data</pre> and display the names of the columns. There are three columns. The first is an identifier of the patient. The other two
-columns are pain scores under different treatments (placebo and methadone). We compute the difference between the pain scores and we would like to assess the normality of this
-difference.
+<li> Consider the data from the following tab-delimited file: <a href="./methadone.txt">methadone.txt</a>. 
+We assign the data to a dataframe called <pre>data</pre> and display the names of the columns. There are three columns. The first is an identifier of the patient. The other two 
+columns are pain scores under different treatments (placebo and methadone). We compute the difference between the pain scores and we would like to assess the normality of this 
+difference. 
 
 
 <pre>
@@ -1177,7 +1159,7 @@ difference.
 > abline(mean(d),sd(d))
 </pre>
 
-Here is the corresponding qq-plot. The tendency in the qq-plot is linear. So it is reasonable to assume that the difference between the pain scores is normally distributed.
+Here is the corresponding qq-plot. The tendency in the qq-plot is linear. So it is reasonable to assume that the difference between the pain scores is normally distributed. 
 
 
 <center>
@@ -1185,12 +1167,12 @@ Here is the corresponding qq-plot. The tendency in the qq-plot is linear. So it 
 </center>
 
 
-<li> R does not have a function in the base to construct a normal probability. However, we have written a function for you. It is in the file
-<a href="./plots.r">plots.r</a>. You will need to source the file and save it on your computer. It contains a function called <code>ppnorm</code>.
+<li> R does not have a function in the base to construct a normal probability. However, we have written a function for you. It is in the file 
+<a href="./plots.r">plots.r</a>. You will need to source the file and save it on your computer. It contains a function called <code>ppnorm</code>. 
 
 <br><Br>
 
-With the following commands, we will source the file <pre>plots.r</pre> and verify that we indeed did source it properly by entering the command <code>ppnorm</code>.
+With the following commands, we will source the file <pre>plots.r</pre> and verify that we indeed did source it properly by entering the command <code>ppnorm</code>. 
 
 <pre>
 > source(file.choose())
@@ -1199,15 +1181,15 @@ function(x, ...)  UseMethod("ppnorm")
 </pre>
 
 <b>Remark:</b> If you properly sourced the file <code>plots.r</code>, then you should see <code>function(x, ...)  UseMethod("ppnorm")</code>, after you enter <pre>ppnorm</pre>
-at the prompt. The usage of the function is <code>ppnorm(x)</code>, where <code>x</code> is a numerical vector.
+at the prompt. The usage of the function is <code>ppnorm(x)</code>, where <code>x</code> is a numerical vector.   
 
-<li> Here are the normal probability plots for <code>x</code>, <code>y</code> and  <code>w.</code> The normal probability plot is similar to the qq-plot, however the sample
-quantiles are on the horizontal axis and for the theoretical quantiles, we display the corresponding probability instead of the value of z. At z=0, we have 50%, at z=1.645, we
+<li> Here are the normal probability plots for <code>x</code>, <code>y</code> and  <code>w.</code> The normal probability plot is similar to the qq-plot, however the sample 
+quantiles are on the horizontal axis and for the theoretical quantiles, we display the corresponding probability instead of the value of z. At z=0, we have 50%, at z=1.645, we 
 have 95%, and so on. So the plots are equivalent. The line that is superimposed is a line with -(mean/std. dev.) as the intercept and 1/(std. dev.) as the slope.
 
 <pre>
 > ppnorm(x)
-</pre>
+</pre>  
 
 <center>
 <img src="./PPx.png" alt="Normal probability plot for x">
@@ -1260,7 +1242,7 @@ Educational video: <a href="https://www.youtube.com/watch?v=LZz0IXdIKww" target=
 > x=c(10.03,9.84,9.94,9.84,10.12,9.94,10.01,10.08,10.13,9.91, 9.94,9.95,10.09,9.97, 10.11, 10.06, 10.00, 10.03,9.89, 10.02)
 </PRE>
 
-Note that the name that we gave the numerical vector is <code>x.</code>
+Note that the name that we gave the numerical vector is <code>x.</code> 
 
 <li>To perform a one sample t-test, use the function <code>t.test</code>.</p></li> Below, we will test the hypothesis that the mean is 10 against a two-sided alternative.
 <PRE>
@@ -1274,26 +1256,26 @@ alternative hypothesis: true mean is not equal to 10
 95 percent confidence interval:
   9.953569 10.036431
 sample estimates:
-mean of x
-    9.995
+mean of x 
+    9.995 
 </PRE>
 
 <b>Comments:</b>
 <ul><li> The first argument in the t.test function is a numerical vector. In our example, this is <code>x</code>.
-<li> In this second argument, we indicate the value of the mean for the null hypothesis.  In our example, we are testing that the mean is equal to 10. By default, R will use
-a two-sided alternative.
-<li> An underlying assumption to use the t-test is that population is normal. We can use a qq-plot to verify this assumption.
+<li> In this second argument, we indicate the value of the mean for the null hypothesis.  In our example, we are testing that the mean is equal to 10. By default, R will use 
+a two-sided alternative. 
+<li> An underlying assumption to use the t-test is that population is normal. We can use a qq-plot to verify this assumption. 
 Here are the commands to produce a qq-plot for <code>x</code>:
 
 <pre>
 qqnorm(x)
 abline(mean(x),sd(x))
 </PRE>
-
+   
 We produce the qq-plot at 1:47 in the video. The <code>abline(mean(x),sd(x))</code> command overlays a line onto the qq-plot with an intercept equal to <code>mean(x)</code>
 and with a slope equal to <code>sd(x)</code>.
 
-<li>To change the confidence level, add an argument to the t-test command: <code>conf.level</code> equal to the confidence level that you want to use, for instance 0.98. We can
+<li>To change the confidence level, add an argument to the t-test command: <code>conf.level</code> equal to the confidence level that you want to use, for instance 0.98. We can 
 also only display the confidence interval without the t-test by adding the symbol $ followed by <code>conf.int</code>.
 
 <PRE>
@@ -1310,8 +1292,8 @@ attr(,"conf.level")
 </PRE>
 
 </ul>
-<li> <b>One sided alternative:</b>
-<ul><li> We import data from the file <a href="./concentration.txt">concentration.txt</a> and we display the names of the columns in the dataframe.
+<li> <b>One sided alternative:</b> 
+<ul><li> We import data from the file <a href="./concentration.txt">concentration.txt</a> and we display the names of the columns in the dataframe. 
 <PRE>
 > data = read.table(file.choose(),header=TRUE,sep="\t")
 > names(data)
@@ -1319,9 +1301,9 @@ attr(,"conf.level")
 </PRE>
 
 <li> There is only one column and it is a numerical variable that contains concentration values in ppm. To refer to this column, we use <code>data$concentration.</code>
-<li> In the <code>t.test</code> function, we use the argument <code>alternative="less"</code> for a left-sided alternative and  we use the argument
-<code>alternative="greater"</code> for a right-sided alternative.
-<li> Here we test that the mean concentration is 65 against an alternative that the mean concentration is less than 65.
+<li> In the <code>t.test</code> function, we use the argument <code>alternative="less"</code> for a left-sided alternative and  we use the argument 
+<code>alternative="greater"</code> for a right-sided alternative. 
+<li> Here we test that the mean concentration is 65 against an alternative that the mean concentration is less than 65. 
 
 <PRE>
 > t.test(data$concentration,mu=65,alternative="less")
@@ -1334,13 +1316,13 @@ alternative hypothesis: true mean is less than 65
 95 percent confidence interval:
     -Inf 62.5629
 sample estimates:
-mean of x
- 59.86667
+mean of x 
+ 59.86667 
 </PRE>
 
-Note that for the 95% confidence interval, we get a one-sided confidence interval (all of the error is place on one side).
-We are 95% confident that the mean concentration is less than 62.6 ppm. So we can conclude that we are 95% confident
-that the mean is less than 65.
+Note that for the 95% confidence interval, we get a one-sided confidence interval (all of the error is place on one side). 
+We are 95% confident that the mean concentration is less than 62.6 ppm. So we can conclude that we are 95% confident 
+that the mean is less than 65. 
 
 <li> Here we test that the mean concentration is 65 against an alternative that the mean concentration is greater than 65.
 
@@ -1355,13 +1337,13 @@ alternative hypothesis: true mean is greater than 65
 95 percent confidence interval:
  57.17043      Inf
 sample estimates:
-mean of x
- 59.86667
+mean of x 
+ 59.86667 
 </PRE>
 
 
 Note that for the 95% confidence interval, we get a one-sided confidence interval (all of the error is place on one side).
-We are 95% confident that the mean concentration is greater than 57.2 ppm. So we <b>cannot</b> conclude with confidence that the mean is greater than 65.
+We are 95% confident that the mean concentration is greater than 57.2 ppm. So we <b>cannot</b> conclude with confidence that the mean is greater than 65. 
 
 </ul>
 </ul>
@@ -1377,17 +1359,17 @@ We are 95% confident that the mean concentration is greater than 57.2 ppm. So we
 
 <BR><BR>
 
-
+        
 Educational video: <a href="https://www.youtube.com/watch?v=LkHrjI6DpYU" target="_blank">Paired t-test</a>
 
 
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> The file <a href="./methadone.txt">methadone.txt</a> has three columns: patient, placebo, methadone. The statistical units are patients that suffer from cronic pain.
-For each patient, we have two measures of pain. So we have paired measurements. It is a measurement of pain following a period where they were given a placebo and a measurement
-of pain following a period where they were given a methadone.
-<li> We import the data from the above file and we display the names of the columns.
+<ul><li> The file <a href="./methadone.txt">methadone.txt</a> has three columns: patient, placebo, methadone. The statistical units are patients that suffer from cronic pain. 
+For each patient, we have two measures of pain. So we have paired measurements. It is a measurement of pain following a period where they were given a placebo and a measurement 
+of pain following a period where they were given a methadone. 
+<li> We import the data from the above file and we display the names of the columns. 
 
 <PRE>
 > data = read.table(file.choose(),header=TRUE,sep="\t")
@@ -1395,14 +1377,14 @@ of pain following a period where they were given a methadone.
 [1] "patient"   "placebo"   "methadone"
 </PRE>
 
-We assign the column called placebo to <code>x</code> and the column called methadone to <code>y</code>.
+We assign the column called placebo to <code>x</code> and the column called methadone to <code>y</code>. 
 
 <PRE>
 > x=data$placebo
 > y=data$methadone
 </PRE>
 
-<li> Here we test that the mean of the difference of the paired measurement is zero against a two-sided alternative:
+<li> Here we test that the mean of the difference of the paired measurement is zero against a two-sided alternative: 
 
 <PRE>
 > t.test(x,y,paired=TRUE)
@@ -1415,14 +1397,14 @@ alternative hypothesis: true difference in means is not equal to 0
 95 percent confidence interval:
   4.867647 17.389496
 sample estimates:
-mean of the differences
-               11.12857
+mean of the differences 
+               11.12857 
 </PRE>
 
 
 The argument <code>paired=TRUE</code> tells R that we have a paired data.
 
-<li> If we only have the difference of the paired measurements, we can input the difference in the <code>t.test</code> to test that the mean of the difference of the paired
+<li> If we only have the difference of the paired measurements, we can input the difference in the <code>t.test</code> to test that the mean of the difference of the paired 
 measurement is zero against a two-sided alternative.
 
 <PRE>
@@ -1436,12 +1418,12 @@ alternative hypothesis: true mean is not equal to 0
 95 percent confidence interval:
   4.867647 17.389496
 sample estimates:
-mean of x
- 11.12857
+mean of x 
+ 11.12857 
 </PRE>
 
 
-<li> For a right-sided alternative, we use
+<li> For a right-sided alternative, we use 
 
 <PRE>
 > t.test(x,y,paired=TRUE,alternative="greater")
@@ -1454,11 +1436,11 @@ alternative hypothesis: true difference in means is greater than 0
 95 percent confidence interval:
  5.931183      Inf
 sample estimates:
-mean of the differences
-               11.12857
+mean of the differences 
+               11.12857 
 </PRE>
 
-<li> For a left-sided alternative, we use
+<li> For a left-sided alternative, we use 
 
 <PRE>
 > t.test(x,y,paired=TRUE,alternative="less")
@@ -1471,8 +1453,8 @@ alternative hypothesis: true difference in means is less than 0
 95 percent confidence interval:
      -Inf 16.32596
 sample estimates:
-mean of the differences
-               11.12857
+mean of the differences 
+               11.12857 
 </PRE>
 
 
@@ -1483,10 +1465,10 @@ mean of the differences
 <BR><BR><BR>
 
 <BR><HR><BR>
-
+ 
 <a name="example13">
 <h2><center>T-test to compare the means from two independent populations</h2></center>
-
+ 
 <BR><BR>
 
 
@@ -1495,7 +1477,64 @@ Educational video: <a href="https://www.youtube.com/watch?v=oZ2xTV8wq3o&feature=
 
 <BR><BR>
 
-<b>Summary of the video:</b>
+<b>Summary of the video:</b><ul><li> We will assume that the data has been assigned to two numerical variables, say <code>x1</code> and <code>x2</code>. We will use the 
+<code>t.test</code> function to test the equality of means. Here is the usage of the function:
+<pre>
+t.test(x1,x2)
+</pre> 
+
+<b>Remarks:</b> <ul><li> By default, here will test the null hypothesis that the population means are equal against a two-sided alternative that the means are not equal. We can use 
+a one-sided alternative by adding an argument. 
+<ul><li> For a right-sided alternative (i.e. mu1 > mu2), use <code>alternative="greater"</code>.
+<li> For a left-sided alternative (i.e. mu1 < mu2), use <code>alternative="less"</code>.
+</ul>
+<li> By default, the Welch approximation is used. If it is reasonable that the populations have equal variances, then we can add the following argument <code>var.equal=TRUE</code>. 
+With this argument, it will be Student's two-sample t test, instead of the Welch approximation. 
+</ul>
+
+<li> <b>Example 1:</b> We will start be assigning values to two numerical vectors with the <code>c()</code> function. (Note: We will eventually upload a video discussing how to work 
+from a dataframe.) 
+<pre>
+## Exemple 1
+x1=c(252.6,183.2,190.8,120.1,173.7,43.0,135.6,143.8,94.2,
+172.9,250.3,217.9,152.6,156.0,112.3)
+
+x2=c(113.3,100.1,123.1,89.8,183.5,126.8,105.4,142.5,145.3,
+117.2,116.3,75.9,97.7,113.7,135.6)
+</pre>
+
+<li> It is reasonable to assume that the populations are normal with equal variances? To assess these assumptions, we will produce comparative boxplots and overlayed normal 
+probability plots. To do so, we will source the file <a href="./plot.r">plots.r</a>. 
+
+<pre>
+> ## browse for the file plots.r
+> source(file.choose())
+</pre>
+
+To verify that the file has properly been sourced, enter <code>ppnorm</code> and <code>BoxPlot</code> at the prompt. If so, you should see the following.
+
+<pre>
+> ppnorm
+function(x, ...)  UseMethod("ppnorm")
+> BoxPlot
+function(x, ...)  UseMethod("BoxPlot")
+</pre>
+
+
+
+<li> We start by indicating to R that we need a graphics window of size 1 row by 2 column with the <code>par</code> function. We then use the BoxPlot function to produce 
+side-by-side boxplots and use the ppnorm function to produce overlayed normal probability plots. 
+
+<pre>
+> par(mfrow=c(1,2))
+> BoxPlot(x1,x2)
+> ppnorm(x1,x2)
+</pre>
+
+Here is the resulting plot. 
+
+
+
 
 <BR><BR><BR>
 
@@ -1518,7 +1557,7 @@ Educational video: <a href="https://www.youtube.com/watch?v=TUGjuWz9gwU" target=
 <BR><HR><BR>
 
 <a name="example15">
-<h2><center>Correlation and Simple Linear Regression</h2></center>
+<h2><center>Correlation and Simple Linear Regression</h2></center>                                          
 
 <BR><BR>
 
@@ -1529,8 +1568,8 @@ Educational video: <a href="https://www.youtube.com/watch?v=zfLttx6k_W0" target=
 <BR><BR>
 
 <b>Summary of the video:</b>
-<ul><li> The file <a href="./trees.txt">trees.txt</a> has two columns: diameter, age. The statistical units are grapefruit trees. The variable diameter is the diameter of the tree in inches and age
-is the age of tree in years.
+<ul><li> The file <a href="./trees.txt">trees.txt</a> has two columns: diameter, age. The statistical units are grapefruit trees. The variable diameter is the diameter of the tree in inches and age 
+is the age of tree in years. 
 
 
 <li> We import the data from the above file and we display the names of the columns.
@@ -1547,21 +1586,21 @@ is the age of tree in years.
 > x=data$age
 </pre>
 
-<li> We produce a scatter plot of  <code>y</code> against <code>x</code> with an overlay of the least squares line.
+<li> We produce a scatter plot of  <code>y</code> against <code>x</code> with an overlay of the least squares line. 
 
 <pre>
 > plot(x,y,ylab="Diameter (in inches)",xlab="Age (in years)")
 > abline(lm(y~x))
 </pre>
 
-Here is the scatter plot.
+Here is the scatter plot. 
 
 <center>
 <img src="./TreeScatter.png" alt="Scatter plot of the diameter against the age">
 </center>
 
-<li> We compute the correlation between the two variables with the <code>cor</code> function. The correlation between the age and the diameter is 0.95. We can use the function
-<code>cor.test</code> to test that the correlation is zero against a two-sided alternative.
+<li> We compute the correlation between the two variables with the <code>cor</code> function. The correlation between the age and the diameter is 0.95. We can use the function 
+<code>cor.test</code> to test that the correlation is zero against a two-sided alternative. 
 
 <pre>
 > cor(x,y)
@@ -1576,15 +1615,15 @@ alternative hypothesis: true correlation is not equal to 0
 95 percent confidence interval:
  0.8982861 0.9765752
 sample estimates:
-      cor
-0.9508399
+      cor 
+0.9508399 
 </pre>
 
 
-<li> We create a linear model object with function <code>lm</code>. It will give us the least squares line of <code>y</code> as a function of <code>x</code>.
-The intercept is 1.003 and the slope is 1.647. We can put our linear model object into the <code>summary</code> function to get a description of the fit of the model.
+<li> We create a linear model object with function <code>lm</code>. It will give us the least squares line of <code>y</code> as a function of <code>x</code>. 
+The intercept is 1.003 and the slope is 1.647. We can put our linear model object into the <code>summary</code> function to get a description of the fit of the model. 
 
-<pre>
+<pre> 
 > model = lm(y~x)
 > model
 
@@ -1592,8 +1631,8 @@ Call:
 lm(formula = y ~ x)
 
 Coefficients:
-(Intercept)            x
-      1.003        1.647
+(Intercept)            x  
+      1.003        1.647  
 
 > summary(model)
 
@@ -1601,22 +1640,22 @@ Call:
 lm(formula = y ~ x)
 
 Residuals:
-    Min      1Q  Median      3Q     Max
--3.4606 -0.9010 -0.2029  0.6975  2.9225
+    Min      1Q  Median      3Q     Max 
+-3.4606 -0.9010 -0.2029  0.6975  2.9225 
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)
-(Intercept)   1.0029     0.6290   1.594    0.122
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   1.0029     0.6290   1.594    0.122    
 x             1.6469     0.1014  16.247 8.72e-16 ***
 ---
 Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 
 Residual standard error: 1.595 on 28 degrees of freedom
-Multiple R-squared:  0.9041,    Adjusted R-squared:  0.9007
+Multiple R-squared:  0.9041,    Adjusted R-squared:  0.9007 
 F-statistic:   264 on 1 and 28 DF,  p-value: 8.72e-16
 </pre>
 
-<li> Alternatively, we can use our original dataframe to fit the model. Recall the dataframe is called <code>data</code>.
+<li> Alternatively, we can use our original dataframe to fit the model. Recall the dataframe is called <code>data</code>. 
 
 <pre>
 > model = lm(diameter~age,data)
@@ -1626,18 +1665,18 @@ Call:
 lm(formula = diameter ~ age, data = data)
 
 Residuals:
-    Min      1Q  Median      3Q     Max
--3.4606 -0.9010 -0.2029  0.6975  2.9225
+    Min      1Q  Median      3Q     Max 
+-3.4606 -0.9010 -0.2029  0.6975  2.9225 
 
 Coefficients:
-            Estimate Std. Error t value Pr(>|t|)
-(Intercept)   1.0029     0.6290   1.594    0.122
+            Estimate Std. Error t value Pr(>|t|)    
+(Intercept)   1.0029     0.6290   1.594    0.122    
 age           1.6469     0.1014  16.247 8.72e-16 ***
 ---
 Signif. codes:  0 *** 0.001 ** 0.01 * 0.05 . 0.1   1
 
 Residual standard error: 1.595 on 28 degrees of freedom
-Multiple R-squared:  0.9041,    Adjusted R-squared:  0.9007
+Multiple R-squared:  0.9041,    Adjusted R-squared:  0.9007 
 F-statistic:   264 on 1 and 28 DF,  p-value: 8.72e-16
 </pre>
 
@@ -1647,24 +1686,10 @@ F-statistic:   264 on 1 and 28 DF,  p-value: 8.72e-16
 
 <HR>
 
-<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0"
-src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license"
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0" 
+src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" 
 href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
 
-<BR><BR><BR>
-
-
-
-<iframe
-src ="http://aix1.uottawa.ca/cgi-bin/cgiwrap/~glamothe/counter.pl"
-width="100%">
-</iframe>
-
-
-
-
-
-<HR>
 
 
 </body>

@@ -1,0 +1,1209 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252"><title>Introduction à R </title></head>
+
+<body bgcolor="FFFFFF">
+
+<p>
+<img src="../StatR/mathStat.gif"></p> <p>
+</p><h2><b><center>Une introduction à R</center>
+</b></h2>
+
+<p>&nbsp;</p>
+
+
+<a href="../StatR/Intro_Ren.html">IN ENGLISH</a>
+
+<p>&nbsp;</p>
+
+<hr>
+
+<font size="+1">
+Table des matières
+</font>
+<br>
+<a href="#intro">Télécharger et installer R</a>
+<br>
+<a href="#example1"> Exemple 1 : Travailler à la console  </a>
+<br>
+<a href="#example2"> Exemple 2 : La loi binomiale et la loi normale  </a>
+<br>
+<a href="#example3"> Exemple 3 : Statistiques Descriptives  </a>
+<br>
+<a href="#example4"> Exemple 4 : Fenêtre d'édition  </a>
+<br>
+<a href="#example5"> Exemple 5 : Importer des données  </a>
+<br>
+<a href="#example6"> Exemple 6 : Quelques diagrammes : Histogramme et diagramme à boite et moustaches.   </a>
+<br>
+<a href="#example7"> Exemple 7 : Diagrammes à boite et moustaches comparatifs.  </a>
+<br>
+<a href="#example8"> Exemple 8 : Opérations sur des vecteurs numériques.  </a>
+<br>
+<a href="#example9"> Exemple 9 : Vérificatin de la normalité (histogramme) </a>
+<BR>
+<a href="#example10"> Exemple 10 : Vérificatin de la normalité : Diagramme quantile-quantile et diagramme à l'échelle fonctionnelle normale.  </a>
+<br>
+<a href="#example11"> Exemple 11 : Test T de Student (Une population) </a>
+<br>
+<a href="#example12"> Exemple 12 : Test T de Student (Mesures appariées) </a>
+<br>
+<a href="#example13"> Exemple 13 : Test T de Student (Populations indépendantes) </a>
+<br>
+<a href="#example14"> Exemple 14: Tableau de contingence </a>
+<br>
+<a href="#example15"> Exemple 15: Corrélation et la régression linéaire simple  </a>
+
+
+
+
+<br><BR><BR><BR><br><br><br><br><br>
+
+
+<br><br>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+<a name="intro">
+<h2><b><center>Télécharger et installer R</center></b></h2>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=jM1KDt5gMVM" target="_blank">Télécharger et installer R</a>
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+	
+	
+A partir de votre navigateur taper R.
+<ul><li> Télécharger R de CRAN, voir
+</a><a href="http://www.r-project.org/" target="_blank">http://www.r-project.org/</a>.
+<ul><li> Suivre le lien pour télécharger (download) R.
+</li><li> Choisir un des sites miroirs le plus proche: Toronto.
+</li><li> Choisir le système d'exploitation, par exemple Windows, Mac OS X ou Linux.
+</li><li> Pour Mac, choisir la dernière version.
+</li><li>Pour Windows, valider une installation pour la première fois en choisissant la <b>base</b>.
+</li><li>Télécharger et enregistrer le fichier sur votre ordinateur.
+</li><li>Ouvrir le fichier et l'exécuter
+</li><li>Accepter les paramètres par défaut en cliquant successivement sur le button suivant.
+</li><li>R devrait être installé avec succès.
+</ul></ul>
+
+
+
+<BR><BR>
+
+<a name="example1">
+<h2><b><center>Travailler à la Console</center></b></h2>
+
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=tHdRlPDjwBw" target="_blank">Travailler à la console</a>
+
+<BR><BR>
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+
+	Voici une image de la console de R.
+	
+	<center>
+	<img src="./Rconsole.png">
+	</center>
+	
+	<br><br>
+	Nous entrons nos commandes à l'invite (c'est-à-dire après le symbole <font color="red">&gt;</font>) dans la console.
+<br><BR>
+        On peut utiliser R comme une calculatrice. On a calculé log(5)-2.5^2. La réponse est -4.640562. Ici <i>log</i> est le logarithme naturel.
+	
+<PRE>
+> log(5)-2.5^2
+[1] -4.640562
+</PRE>		
+
+
+
+	<br><br>
+	
+	
+	<b>Construire des variables numériques et catégoriques avec R</b>
+	
+	<br><br>
+	
+	<ul><li>Attribuer des valeurs à un vecteur avec <code>&lt;-</code> ou avec <code>=</code>.
+	<li> On peut attribuer une liste de valeurs à une variable (qui peut être numérique ou catégorique) avec la commande <code>c()</code>.
+	<li>Le c est pour <b>combiner</b>.
+<BR><BR>	
+<b>Exemple 1: Attribuer des valeurs à une variable numérique: PA (pour pression arterielle).</b> Ici nous attribuons des valeurs à la variable <code>PA</code> et ensuite nous affichons le vecteur
+numérique <code>PA</code>
+<pre>
+> PA = c(112, 121, 165)
+> PA
+[1] 112 121 165
+</PRE>
+
+<b>Remarque:</b> Le [1] est pour indiquer que 112 est la première valeur du vecteur.
+
+
+<BR><BR>	
+<b>Exemple 2: Attribuer des valeurs à une variable catégorique: nom (nom des sujets)</b>
+<pre>
+> nom = c("Alice", "Robert", Celine")
++
+</PRE>
+
+Ici il y a une erreur. Il manque des guillemets en avant de Celine. L'invite n'est pas disponible pour prendre d'autres commandes puisque R croit qu'on n'ait pas fini
+d'entrer la commande. On peut arrêter la commande en appuyant sur le bouton stop de la console. On peut rappeler une ancienne commande avec la flèche en haut et fixer l'erreur.
+On a ajouter les guillemets.
+
+<pre>
+> nom = c("Alice", "Robert", "Celine")
+</PRE>
+
+<li> Pour afficher les valeurs de ce vecteur, soumettre le nom du vecteur à l'invite: <code>nom</code>.
+<PRE>
+> nom
+[1] "Alice"  "Robert" "Celine"
+</PRE>
+
+<Br><BR><b>Exemple 3: Enlever un vecteur de la session de travail.</b>
+<ul><li> On peut utiliser la fonction <code>ls()</code> pour donner ou afficher une liste de tous les vecteurs utilisés pendant la session de travail.
+<PRE>
+> ls()
+[1] "nom" "PA"
+</PRE>	
+
+<li> On peut aussi enlever ou effacer des vecteurs avec fonction rm(). Ici on enlève le vecteur <code>nom</code>.
+<PRE>
+> rm(nom)
+> ls()
+[1] "PA"
+</PRE>
+
+</ul>
+</ul>
+
+<BR><BR>
+<hr>
+<BR><BR>
+
+<a name="example2">
+<h2><b><center>La loi binomiale et la loi normale</center></b></h2>
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=lzXbMYupQSA" target="_blank">La loi binomiale et la loi normale</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+	<br><br>
+	
+<p><b>NB</b> : Le symbole # est utilisé pour écrire des commentaires avec R. R n'interprète pas les commentaires. 
+<p> Voici un exemple d'un commentaire : </p>
+<pre> > # J'étudie la biostatistique </pre>
+
+	
+	<br><br>
+	
+	Voici des exemples d'évaluation de probabilités avec la loi binomiale.
+	
+	<br><br>
+	
+	<b>Binomiale:</b> <p> Avec R, le nom de la loi binomiale est <b> binom. </b> Un préfixe <i>d</i> ou <i>p</i> est utilisé avec le nom binom.  </p>
+<ul><li> <b>d</b>binom est la loi de probabilité. Son utilisation est <code>dbinom(x, size, prob)</code>, où <code>x</code> est une valeur dans l'image de la variable aléatoire, <code>size</code> 
+est le nombre d'épreuves et <code>prob</code> la probablité du succès.  
+<li> 
+<p> Exemple: Calculons <i>P(X=20)</i>, où <i>X</i>suit une loi binomiale avec  n=30 et p=0,75. </p>
+<p> Solution: On a <i>P(X=20)=0.0909</i>. Voici le calcul avec R. 
+<PRE>
+> dbinom (20, 30, 0.75)
+[1] 0.09086524
+</PRE>
+
+Ce n'est pas nécessaire d'indiquer "size=" et "prob=" si on met les arguments dans le bon ordre:
+       <pre>
+        > dbinom(20,30,.75)
+        [1] 0.09086524
+       </Pre>
+
+
+
+<li> <b>p</b>binom est la fonction de répartition. Son utilisation est <code>pbinom(x, size, prob)</code>, où <code>x</code> est un nombre, <code>size</code>
+est le nombre d'épreuves et <code>prob</code> la probablité du succès.  
+
+<li> Calculons P(X &le;20).    On veut P(X &le;20)=F(20)=0,1966. Voici le calcul avec R. 
+	
+        <PRE>
+	> pbinom(20,30,0.75)
+	[1] 0.1965934
+       </PRE>
+	
+<li>  Calculons P(20 &le;X &le;25).   On peut calculer P(X=x) pour x=20,21,...,25:
+
+        <PRE>	
+	> dbinom(20:25,30,0.75)
+	[1] 0.09086524 0.12980749 0.15930919 0.16623567 0.14545621 0.10472847
+        </PRE>	
+
+Mais on veut la somme de ces probabilités, alors on utilise la commande <i>sum</i>:
+	<PRE>
+	> sum(dbinom(20:25,30,0.75))
+	[1] 0.7964023
+       </PRE>
+
+
+Alors,   P(20 &le;X &le;25)=0,7964.
+
+
+<b>Commentaire:</b> Une autre façon d'obtenir cette probabilité est d'utiliser la fonction de répartition. On veut P(20 &le;X &le;25)=P(X &le;25)-P(X&le;19)=F(25)-F(19)=0,7964. Voici le calcul avec R. 
+
+       <PRE>
+	> pbinom(25,30,0.75)- pbinom(19,30,0.75)
+	[1] 0.7964023
+       </PRE>
+</ul>
+
+<b>Sommaire pour la loi Binomiale:</b> On utilise un préfixe de p pour la fonction de répartition et un préfixe de d pour obtenir la loi de probabilité.
+
+
+	<BR><BR>
+	
+<b>La loi normale:</b> Supposons qu'on veut travailler avec une certaine loi normale.
+<ul><li> Le nom avec R de la loi normale est <i>norm</i>.
+<li> On utilise le préfixe <i>p</i> pour la fonction de répartition.
+<li> On utilise le préfixe <i>q</i> pour la fonction quantile.
+</ul>
+
+Voici des exemples. Supposons que <i>X</i> suit une loi normale de moyenne 25 et d'écart type 5,25.
+<ul><li> Calculons <i>P(X<20).</i> On veut <i>P(X<20)=F(20) =0,1705.</i> Voici le calcul avec R. 
+
+	<pre>
+	> pnorm(20,25,5.25)
+	[1] 0.1704519
+       </pre>
+
+<li> Calculons P(20 < X <25).   On veut <i>P(20 < X <25)=F(25)-F(20)=0,3295.</i> Voici le calcul avec R. 
+	<pre>
+	> pnorm(25,25,5.25) - pnorm(20,25,5.25)
+	[1] 0.3295481
+        </pre>
+        
+</ul>
+<b> Fonction Quantile:</b> Le préfixe est q pour la fonction quantile. Voici des exemples.
+<ul><li> On veut le 5ème centile, c'est-à-dire une valeur q tel que <i>P(X<q)=5%</i>. Le premier argument sera 0.05 pour le 5ième quantile et les autres arguments seront la moyenne (ici c'est 25) et
+l'écart type (ici c'est 5.25). Alors, le 5ième quantile est q=16,3645. Voici le calcul avec R. 
+
+	<pre>
+	> qnorm(0.05,25,5.25)
+	[1] 16.36452
+       </pre>
+
+ <li> Supposons que l'on veut obtenir le 95ième centile, qui est 33,6355. C'est-à-dire on veut une valeur q tel que P(X<q)=0,95. On utilise:
+
+	<pre>
+	> qnorm(0.95,25,5.25)
+	[1] 33.63548
+        </pre>	
+
+<li> Supposons que l'on veut calculer le premier quartile (qui est 21,46 environ) et le troisième quartile (qui est 28,54 environ).  C'est-à-dire, on veut
+le 25ième centile et le 75ième centile. On
+utilise :
+
+	<pre>
+	> qnorm(0.25,25,5.25)
+	[1] 21.45893
+	> qnorm(0.75,25,5.25)
+	[1] 28.54107
+      </pre>
+
+<li> Supposons qu'on aimerait calculer la distance inter quartile. C'est la distance entre le troisième quartile et le premier quartile. On utilise :
+
+	<pre>
+	> qnorm(0.75,25,5.25) - qnorm(0.25,25,5.25)
+	[1] 7.082142
+       </pre>
+
+</ul>
+	
+<b>Sommaire pour la loi normale:</b> Le nom avec R pour la loi normale est <code>norm</code>.
+On utilise le préfixe p pour la fonction de répartition et le préfixe de q pour obtenir des quantiles.
+
+<BR><BR>
+
+
+
+<a name="example3">
+<h2><b><center>Statistiques Descriptives</center></b></h2>
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=z58rHYv0lBI" target="_blank">Statistiques Descriptives</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+	<br><br>
+	
+	Soit <i>x</i> une variable numérique déjà défini avec R, la commande <i>ls()</i> permet d'afficher les objets qu'on ait déjà défini durant cette session.
+Nous observons qu'il y a un objet nommé <i>x</i>. Nous allons afficher <i>x</i>.
+
+     <pre>
+         > x
+	[1]  12  13  11   9   2  75 125  35
+     </pre>
+
+
+<br><br>
+
+<b>Remarque:</b> Nous avions construit ce vecteur avec la commande: <code>x=c(12,  13,  11,   9,   2,  75, 125,  35)</code>
+
+<br>
+	
+<ul><li> Utiliser <i>is.numeric(x)</i> pour savoir si x est numérique.
+<li> Utiliser <i>is.vector(x)</i> pour vérifier si c'est un vecteur.
+<li> Avec un vecteur numérique, on peut calculer des statistiques descriptives.
+<li> La fonction <i>length</i> permet de calculer la longueur du vecteur (c'est-à-dire le nombre de composantes) :
+        <PRE>
+	> length(x)
+	[1] 8
+        </PRE>
+Notre vecteur numérique a 8 composantes.
+
+</li><li> La fonction <i>summary</i> nous donne un sommaire de plusieurs statistiques descriptives.
+	
+		
+	<pre>
+        > summary(x)
+   	Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+   	2.00   10.50   12.50   35.25   45.00  125.00
+	</pre>
+	
+<br><br>
+	
+<li> Voici quelques commandes pour obtenir certaines statistiques descriptives.
+	
+<pre>
+	
+mean(x) # pour la moyenne
+
+median(x) # pour la médiane
+
+var(x) # pour la variance
+
+sd(x) # pour l'écart type
+
+IQR(x) # pour la distance interquartile
+
+range(x) # pour l'étendue (permet d'afficher le min et le max)
+
+range(x)[2] - range(x)[1] # pour la différence entre le max et le min
+
+sort(x) # pour ordonner les valeurs en ordre croissant
+</pre>	
+
+
+<li> quantile(x) # pour quelques centiles
+	
+	<pre>
+        > quantile(x)
+	0%   25%   50%   75%  100%
+	2.0  10.5  12.5  45.0 125.0
+	</pre>
+		
+	<b>Remarques :</b> <ul><li> Ici, le 25ième et 75ième centile sont le premier et le troisième quartile. Le premier quartile est 10,5, le troisième quartile est 45, et le
+50ième centile (qui est la médiane) est 12,5.
+<li> Il y a plusieurs façons de calculer les quartiles. Si nous voulons des quartiles en utilisant la formule qu'on ait apprise en classe, utiliser <code>quantile(x,type=6). </code>
+On obtient
+<pre>
+> quantile(x,type=6)
+   0%   25%   50%   75%  100%
+  2.0   9.5  12.5  65.0 125.0
+</pre>
+Alors, q1=9,5 et q3=65. 	
+
+
+<li> On peut aussi changer l'ordre de nos centiles. Supposons que nous voulons le 5ième centile et le 95ième centile:
+
+	<pre>
+        > quantile(x, c(0.05, 0.95)) # pour obtenir le 5ième et le 95ième centile
+	</pre>
+	
+</ul>
+<li> On utilise la commande <i>boxplot(x)</i> pour créer un diagramme à boites et moustaches de la variable <i>x</i>.
+<li> On utilise <i>boxplot(x)$out</i> pour obtenir les valeurs aberrantes.
+</ul>
+</ul>
+
+
+
+<BR><BR>
+
+<a name="example4">
+<h2><b><center>Fenêtre d'édition</center></b></h2>
+
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=sbD4NhMYkdE" target="_blank">Fenêtre d'édition</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+
+
+<ul><li> Pour travailler avec R, nous pouvons entrer directement des commandes à l'invite dans la console de R.
+<BR><BR>
+	<li> Supposons que l'on veut créer un vecteur numérique <code>w</code>.
+Avec la fonction <code>c</code>, on peut attribuer des valeurs à <code>w</code>. Ci bas, avec R, nous avons attribué des
+valeurs au vecteur numérique <code>w</code> et nous affichons des statistiques descriptives pour <code>w</code> avec la fonction <code>summary</code>.
+
+<pre>	
+> w = c(12,25,36,47,23,11,10)
+> summary(w)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+  10.00   11.50   23.00   23.43   30.50   47.00
+</pre>
+
+<BR><BR>
+
+<li> En alternative, au lieu d'utiliser la console, c'est souvent plus efficance d'entrer les commandes dans une fenêtre d'édition avec R.
+<li> Dans R GUI Choisir <b>File -&gt; New Script</b> (en Windows) ou <b>File -&gt; New Document</b> (sur un Mac).
+<li> On entre nos commandes dans la fenêtre d'édition et ensuite on sélectionne les commandes pour les soumettre à la console.
+<BR><BR>
+
+<li> Voici un exemple. Voici des commandes que nous avons inscrites dans une fenêtre d'édition :
+<PRE>
+## y est une variable numérique
+y = c(12,45,67,49,29,23,67)
+boxplot(w,y)
+</pre>
+
+Pour soumettre les commandes à la console, on sélectionne les commandes qu'on veut soumettre et on utilise <b>CTRL-R</b> (sur windows) ou <b>CMD-Enter</b> (avec un Mac).
+Ensuite, quand nous allons dans la console, on voit le résulat:
+<pre>
+> ## y est une variable numérique
+> y = c(12,45,67,49,29,23,67)
+> boxplot(w,y)
+</PRE>
+
+R va aussi avoir construit des diagrammes à boite et moustaches comparatifs dans une fenêtre graphique.
+
+
+</ul>
+
+<B> Remarques :</b>
+<ul><li> On utilise le symbole # pour des commentaires. R va ignorer tout ce qui vient après le symbole #.
+<li> Nous pouvons sauvegarder les commandes dans la fenêtre d'édition. Maximiser la fenêtre d'édition, et choisir <code>file</code> et <code>save as</code>.
+Le fichier devrait avoir l'extension (.R). Voici un exemple : <code>RStuff.R</code> </ul>
+</ul>
+
+<hr>
+<BR><BR>
+
+<a name="example5">
+<h2><b><center>Importer les données d'une fichier</center></b></h2>
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=JAkdCK_TK6I&feature=youtu.be" target="_blank">Importer des données d'une fichier.</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+        <br><br>
+<ul>
+<li>
+Nous allons importer des données à partir d'un fichier texte délimité par des tabulations.
+Nous pouvons construire un fichier texte délimité par des tabulations avec une feuille de travail d'Excel ou
+d'Open Office Calc (qui est gratuit).
+<li> Les colonnes sont les variables. Les rangés sont les unités statistiques.
+<li>
+Dans notre premier exemple, nous avons des paires mère-fille qui sont les unités statistiques. Nous allons utiliser deux variables
+numériques pour décrire les unités: la taille de la mère en cm et la taille de la fille en cm.
+Nous avons sauvegardé le jeu de données en tant que fichier texte délimité par des tabulations nommé
+ <a href="./MereFille.txt">MereFille.txt.</a><b> [Faites un clic droit sur le fichier et SAUVEGARDER SOUS (avec un Mac essayer deux doigts avec le clic de la souris et  SAUVEGARDER SOUS)].
+</b>
+
+<li> Avec R, utilisez la fonction <code>read.table</code> pour importer des données à partir d'un fichier texte. R va créer un jeu de données dit <i>dataframe</i>.
+<li> Dans l'exemple ci-dessous, nous importons les données du fichier MereFille.txt. Nous appellons le jeu de données <code>donnees</code>.
+<PRE>
+> donnes = read.table(file.choose(), header=TRUE, sep="\t")
+</PRE>
+<p> N.B. : <code>donnes</code> est le nom que nous avons donné au jeu de données.
+</p>
+<pre>
+<h4>Arguments:</h4></pre>
+<p><code>file.choose()</code> : Avec cet argument, R va ouvrir une fenêtre pour nous permettre de trouver notre fichier.
+</p>
+<p><code>header=TRUE</code>: Par défaut, R suppose que nous n'avons pas donné de noms aux colonnes. C'est-à-dire que la premier unité statistique dans la première rangé.
+Mais, nous préférons donner des noms aux colonnes. Pour donner des noms aux colonnes, on met les noms des colonnes dans la première rangé du fichier. Alors, cet argument indique à R que la première rangé
+contient les noms des colonnes.
+</P>
+<p><code>sep="\t"</code>: Par défaut, R utilise des espaces pour délimiter les colonnes. Nous avons utiliser des tabulations pour délimiter les colonnes, alors on indique ceci avec l'argument
+<code>sep="\t"</code>.
+
+<li>
+Lorsque la commande est entrée, une fenêtre est ouverte afin que nous puissions rechercher le fichier. Sélectionnez le fichier et cliquez sur <b> open </b>. Maintenant, les données ont été importées
+avec R.
+
+</p>
+</ul>
+
+<h3>Travailler avec un jeu de données (dataframe) ...</h3></pre>
+<ul><li> Nous pouvons vérifier que <code>données</code> est un data frame.
+<pre>
+> is.data.frame(donnees)
+[1] TRUE
+</pre>
+
+R affiche TRUE, alors <code>donnees</code> est un <i>data frame</i>, c.-à-d. un tableau où les unités statistiques sont dans les rangés et les variables sont dans les colonnes.
+<li> On utilise la fonction <code>names</code> pour afficher les noms des colonnes. Ci-bas, on affiche les noms des colonnes pour le <i> dataframe</i> <code>donnees</code> :
+<pre>
+> names(donnees)
+[1] "Fille" "Mere"
+</pre>
+
+On observe deux colonnes nommées : "Fille" et "Mere".
+
+<li> Pour accèder une colonne dans un <i>dataframe</i>, on utilise le nom du <i>dataframe</i> avec un signe de dollar et ensuite le nom de la colonne. Ci-bas, on affiche la colonne
+"Fille" du <i>dataframe</i> <code>donnees</code> :
+<pre>
+> donnees$Fille
+ [1] 160 165 156 169 152 156 162 156 161 160 164 162
+</PRE>
+
+On peut aussi référer à la colonne en utilisant son indice au lieu de son nom.
+
+<pre>
+> donnees[,1]
+ [1] 160 165 156 169 152 156 162 156 161 160 164 162
+</pre>
+
+On utilise des paranthèses carrées pour utiliser des indices. Ici nous avons  utiliser
+<code>[,1]</code> pour obtenir toutes les rangés, mais seulement la première colonne. Ci-bas, on affiche la deuxième colonne du <code>donnees</code>
+
+<PRE>
+> donnees[,2]
+ [1] 163 165 162 161 161 160 164 159 164 161 163 168
+</PRE>
+
+La deuxième colonne est appelée "Mere", donc ici, nous utilisons le nom pour accéder à la 2ème colonne :
+
+<PRE>
+> donnees$Mere
+ [1] 163 165 162 161 161 160 164 159 164 161 163 168
+</PRE>
+
+<li> Ici nous utilisons la fonction <code>summary</code> pour afficher quelques statistiques descriptives pour la taille des mères (en cm).
+
+<pre>
+> summary(donnees$Mere)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+  159.0   161.0   162.5   162.6   164.0   168.0
+</pre>
+
+Ici nous utilisons la fonction <code>boxplot</code> pour afficher des diagrammes à boites et moustaches comparatifs des tailles des mères et des tailles des filles.
+
+<pre>
+>  boxplot(donnees$Mere,donnees$Fille,names=c("Mères","Filles"))
+</pre>
+
+Voici le diagramme :
+
+
+<center>
+<img src="./Mere.png" alt="Diagramme à boite et moustaches (mere-fille)">
+</center>
+
+</ul>
+
+
+<ul><li> Voici un deuxième exemple. Dans notre feille de travaille Excel, les rangés sont les unités statistiques qui sont des pommes de laitues. Nous allons décrire les unités
+avec deux variables : une variable numérique qui est la masse sèche de la laitue et une variable catégorique qui identifie si la laitue fut en compétition. La laitue fut en compétition avec de l'épinard ou elle
+ne fut pas en compétition.
+<li> On a sauvegardé les données dans un fichier texte délimité par des tabulations. Le nom du fichier est laitue.txt.
+<li> Avec R, on utilise la fonction <code>read.table</code> pour importer les données du fichier texte. Ceci va créer un <i>dataframe</i> (jeu de données) avec R.
+Dans l'exemple suivant, nous importons des données du fichier suivant : <a href="./laitue.txt">laitue.txt.</a>
+<PRE>
+> laitue = read.table(file.choose(), header=TRUE, sep="\t")
+</PRE>
+
+On nomme le jeu de données <code>laitue</code>.
+
+<li> On affiche les noms des colonnes :
+<pre>
+> names(laitue)
+[1] "masse.sec"      "en.concurrence"
+</pre>
+
+Il y a deux colonnes. En outre, remarquons que R a mis un point dans le nom "masse.sec". R va substituer des symboles (comme l'espace) qui ne sont pas permis dans le noms des variables par un point.
+<li> Ci bas, on calcul la moyenne de la masse sèche pour toutes les pommes de laitues.
+
+<PRE>
+> mean(laitue$masse.sec)
+[1] 2.750667
+</PRE>
+
+Nous avons deux groupes de laitues, les laitues en compétition avec l'épinard et les laitues qui ne sont pas en compétition. On calcul la moyenne de la masse sèche pour chaque groupe avec la
+fonction <code>aggregate</code> et une notation de <code>formule</code>.
+
+<pre>
+> aggregate(masse.sec~en.concurrence, laitue,mean)
+  en.concurrence masse.sec
+1            non     3.020
+2            oui     2.212
+</pre>
+
+
+<h4>Arguments:</h4>
+<ul><li> Dans le premier argument, on utilise une notation de formule pour indiquer qu'on veut "masse.sec" selon les niveaux de la variable "en.concurrence".
+<li> Dans le deuxième argument, on a le nom du <i>dataframe</i>. Dans notre cas, c'est <code>laitue</code>.
+<li> Dans le troisième argument, on donne la nom de la fonction que R doit évaluer. Dans notre cas, on veut la moyenne (qui est <code>mean</code> avec R) pour chaque groupe.
+</ul>
+
+Voici l'écart type de la masse sèche pour chaque groupe.
+
+<pre>
+> aggregate(masse.sec~en.concurrence, laitue,sd)
+  en.concurrence masse.sec
+1            non 0.9350325
+2            oui 0.7774531
+</pre>
+
+<li> Si nous voulons faire référence à un des sous-groupes, on peut demander à R de vérifier une condition. Voici un exemple où nous référons à la masse sèche des laitues en compétition.
+On commence avec un affichage des niveaux de la variable catégorique <code>en.concurrence</code>.
+
+<PRE>
+> levels(laitue$en.concurrence)
+[1] "non" "oui"
+</PRE>
+
+Nous allons calculer la moyenne de la masse sèche des laitues en compétition, c'est-à-dire pour le groupe "oui". En utilisant les parenthèses carrées, on demande à R de vérifier pour chaque rangé si la
+condition dans la parenthèse est satisfaite. Si la condition n'est pas satisfaite, alors R ignore cette rangé.
+
+<PRE>
+> mean(laitue$masse.sec[laitue$en.concurrence=="oui"])
+[1] 2.212
+</PRE>
+
+On peut aussi utiliser la notation de formule avec la fonction <code>boxplot</code>.
+
+<pre>
+> boxplot(masse.sec~en.concurrence,laitue)
+</pre>
+
+La commande ci-haut produit des diagrammes à boites et moustaches comparatifs pour la masse sèche selon le niveau de la concurrence. Voici le diagramme :
+
+
+<center>
+<img src="./laitueBox.png" alt="diagramme à boites comparatifs pour la masse sèche selon la compétition">
+</center>
+
+</ul>
+
+<p>Mots clés : read.table, indices, boxplot, summary, aggregate</p>
+
+
+<BR><BR>
+
+<hr>
+<BR><BR>
+
+<a name="example6">
+<h2><b><center>Quelques diagrammes: histogramme et diagramme à boites et moustaches</center></b></h2>
+
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=UjoIkVDFHNM&feature=youtu.be" target="_blank">Histogramme et diagramme à boite et moustaches</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+        <br><br>
+
+<ul><li> Supposons que <code>x</code> est un vecteur numérique. Pour construire un histogramme de <code>x</code>, on utilise la commande <code>hist(x)</code> et pour un diagramme
+à boite et moustaches, on utilise la commandes <code>boxplot(x)</code>.
+<li> Pour notre exemple, nous allons importer les données du fichier <a href="./TEMPSDESURVIE.txt">TEMPSDESURVIE.txt</a> en utilisant la fonction <code>read.table</code>.
+
+<pre>
+> donnees = read.table(file.choose(),header=TRUE,sep="\t")
+> names(donnees)
+[1] "Temps.de.survie..en.mois."
+</pre>
+
+<b>Remarques:</b>
+<ul><li> Nous avons créé un jeu de données (un dataframe) avec R. Ce jeu de données est nommé <code>donnees</code> et le jeu de données contient
+une colonne qui est nommée  "Temps.de.survie..en.mois.".
+<li> Pour référer à cette colonne, on utilise <code>donnees$Temps.de.survie..en.mois.</code>
+<li> Pour voir le nombre de colonne et le nombre de rangés, on utilise:
+<pre>
+> ncol(donnees)
+[1] 1
+> nrow(donnees)
+[1] 250
+</pre>
+Alors, le jeu de donnees a une colonne et 250 rangés (pour les 250 patients).
+</ul>
+
+<li> La commande pour construire l'histogramme pour le temps de survie est
+<pre>
+> hist(donnees$Temps.de.survie..en.mois.)
+</pre>
+
+Voici le résultat.
+
+<center>
+<img src="./SurvieHist.png" alt="Histogramme du temps de survie">
+</center>
+
+<li> On peut changer l'étiquette sur l'axe verticale avec ylab, sur l'axe horizontale avec xlab et changer le titre avec main. Considérons la commande suivante :
+
+<pre>
+hist(donnees$Temps.de.survie..en.mois.,ylab="Fréquence",
+xlab="Temps de survie (en mois)",main="Histogramme du temps de survie")
+</pre>
+
+Voici le résultat.
+
+<center>
+<img src="./SurvieHistNice.png" alt="Histogramme du temps de survie">
+</center>
+
+<li> On peut constuire un diagramme à boite et moustache avec la fonction <CODE>boxplot</code>. Considérons la commande suivante :
+
+<pre>
+> boxplot(donnees$Temps.de.survie..en.mois.,ylab="Temps de survie (en mois)")
+</pre>
+
+Voici le résultat.
+
+<center>
+<img src="./SurvieBox.png" alt="Diagramme à boîte et moustaches du temps de survie">
+</center>
+
+<b>Remarque:</b> R calcul les quartiles d'une façon différente que nous. Notre formule pour les quartiles est les quantiles de type 6 avec R. Nous avons défini une fonction avec R qui nous permet de construire
+un diagramme à boite et moustaches avec des quantiles de type 6. La fonction est dans le fichier <a href="./plots.r">plots.r</a>. Sauvegarder ce fichier. Pour utiliser cette fonction, il faut
+ouvrir le fichier avec R de la façon suivante:
+
+<pre>
+> source(file.choose())
+</pre>
+
+R va ouvrir une fenêtre et sélectionner le fichier <code>plots.r</code>. Pour vérifier que vous avez bien ouvert le fichier, considérer la commande suivante:
+
+<pre>
+> BoxPlot
+function(x, ...)  UseMethod("BoxPlot")
+</pre>
+
+Si vous voyez <code>function(x, ...)  UseMethod("BoxPlot")</code>, après avoir entrer <code>BoxPlot</code> à l'invite, alors vous avez accès à la fonction <code>BoxPlot</code>. On utilise
+la fonction <code>BoxPlot</code> comme la fonction <code>boxplot</code>. Mais,  <code>BoxPlot</code> utilise des quantiles de type 6.
+
+</ul>
+
+Mots clés: histogramme, diagramme à boite et moustaches, quantile de type 6.
+
+
+<BR><BR>
+
+<hr>
+<BR><BR>
+
+<a name="example7">
+<h2><b><center>
+Diagrammes à boite et moustaches comparatifs.
+</center></h2>
+</b>
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=BMYfMl0F3sI&feature=youtu.be" target="_blank">Diagrammes à boîte et moustaches comparatifs</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+        <br><br>
+<ul><li> On considère deux façons d'utiliser la fonction boxplot (i) nous avons les données dans des vecteurs numériques différents;
+(ii) nous avons importé les données d'un fichier et nous avons construit un jeu de données (dataframe) avec ces données.
+<li> Pour notre premier exemple, nous supposons que nous avons au moins deux groupes de valeurs numériques que nous voulons comparer.
+Pour notre exemple, nous avons trois groupes. Nous allons construire un vecteur pour chacun des groupes.
+<pre>
+> x=c(12,13,24,56,100,45,67,45,34,23)
+> y=c(11,14,24,57,115,65,67,45,34,24)
+> z=c(12,34,56,34,99,98,65,34,23,11,10,9,23,65)
+</pre>
+
+Nous utilisons des diagrammes à boite et moustaches comparatifs avec la fonction <code>boxplot</code>.
+<pre>
+> boxplot(x,y,z)
+</pre>
+
+<b>Remarque:</b> R va nommer les groupes 1, 2, et 3, respectivement. Nous allons modifier les noms des groupes avec l'argument
+<code>names</code>. On peut aussi donner une étiquette à l'axe vecticale en utilisant l'argument  <code>ylab</code>.
+Voici la commande que nous avons utiliser pour construire le diagramme ci bas.
+
+<pre>
+boxplot(x,y,z,names=c("Groupe 1","Groupe 2","Groupe 3"), ylab="Taille (en cm)")
+</pre>
+
+<center>
+<img src="./SideBoxFR.png" alt="Side-by-side Boxplots">
+</center>
+
+
+<li> R calcul les quartiles en utilisant une différente formule que nous. Notre formule est équivalente à un quantile de type 6 avec R.
+Nous avons défini une fonction avec R qui construit les diagrammes à boite et moustaches avec des quantiles de type 6. La fonction est dans le fichier
+<a href="./plots.r">plots.r</a>. Sauvegarder le fichier, nous allons importer le fichier en utilisant la commande suivante avec R.
+
+<pre>
+> source(file.choose())
+</pre>
+
+R va ouvrir une fenêtre et nous allons sélectionner le fichier <code>plots.r</code>. Pour vérifier que nous avons bien importer le fichier,
+utilisez la commande suivante :
+
+<pre>
+> BoxPlot
+function(x, ...)  UseMethod("BoxPlot")
+</pre>
+
+Si vous voyez <code>function(x, ...)  UseMethod("BoxPlot")</code>, après avoir soumis la commande <code>BoxPlot</code> à l'invite, alors,
+vous avez maintenant accès à la fonction <code>BoxPlot</code>.
+On peut utiliser  <code>BoxPlot</code> exactement comme la fonction <code>boxplot</code>. Mais,  <code>BoxPlot</code> utilise les quantiles de type 6.
+
+<li> Pour notre prochain exemple, nous allons importer les données du fichier texte : <a href="./weather2007.txt">weather2007.txt</a>.
+On commence avec l'attribution des données à un jeu de données avec la fonction <code>read.table</code>.
+
+<pre>
+> donnees = read.table(file.choose(),header=TRUE,sep="\t")
+</pre>
+
+<b>Remarques:</b>
+<ul><li> Un jeu de données est un tableau de valeurs. Les rangés sont les unités statistiques (ici un unité est une journée en 2007).
+On peut afficher le nombre de rangés.
+
+<pre>
+> nrow(donnees)
+[1] 365
+<li>
+
+On voit qu'il y a une rangé pour chacune des 365 journées de l'année 2007. On utilise des variables pour décrire les unités. Les variables sont dans les colonnes.
+L'argument <code>header=TRUE</code> est utilisé pour indiquer à R que dans la première rangé du fichier, nous avons les noms des colonnes. On utilise
+<code>names</code> pour afficher les noms des colonnes.
+
+<pre>
+> names(donnees)
+[1] "Avg.Temp...C."  "Avg.Temp...F."  "Avg.Wind..mph." "Precip..in."    "Day"            "Month"
+[7] "Season"
+</pre>
+
+On observe 7 colonnes.
+</ul>
+
+<li> Supposons que nous avons un vecteur numérique  <code>y</code> et un vecteur catégorique <code>x</code> (pour identifier les groupes) dans le jeu de données
+<code>donnees</code>. Pour construire des diagrammes à boîte et moustaches comparatifs pour y selon les niveaux de x, on utilise
+<pre>
+boxplot(y~x,donnees)
+</pre>
+
+<li> Nous allons construire des diagrammes à boîtes et moustaches comparatifs de la vitesse moyenne du vent selon le mois.
+<pre>
+boxplot(Avg.Wind..mph.~Month,donnees)
+</pre>
+
+On ajoute des étiquettes aux axes avec <code>ylab</code> et <code>xlab</code>. Voici la commande et le diagramme correspondant.
+
+<pre>
+BoxPlot(Avg.Wind..mph.~Month,donnees,ylab="Vitesse moyenne du vent (en mph)",xlab="Mois")
+</PRE>
+
+<center>
+<img src="./SideWindBoxFR.png" alt="Side-by-side Boxplots for average wind speed according to month">
+</center>
+
+
+
+<b>Remarque:</b> Si nous avons importer le fichier <code>plots.r</code>, avec la commande <code>source(file.choose())</code>, alors nous pouvons utiliser
+la fonction <code>BoxPlot</code> de la même façon que la fonction <code>boxplot</code> sauf que les quartiles sont des quantiles de type 6.
+
+<pre>
+BoxPlot(Avg.Wind..mph.~Month,data,ylab="Average Wind Speed (in mph)",xlab="Month")
+</PRE>
+</ul>
+</ul>
+
+
+<BR><BR>
+
+<hr>
+<BR><BR>
+
+<a name="example10">
+<h2><b><center>
+Vérification de la normalité : Diagramme quantile-quantile et diagramme de probabilité à l'échelle normale.
+</center></h2>
+</b>
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=ud2eBZetd8I&feature=youtu.be" target="_blank">Diagramme quantile-quantile</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b> <ul><li> Considérons les trois vecteurs numériques suivants. Pour chacun, est-ce raisonnable de supposer que c'est un échantillon aléatoire d'une
+population normale? En d'autres mots, on veut vérifier la condition de normalité.
+
+<pre>
+x=c(15.0, 15.3, 16.1,  5.4, 14.7, 14.7, 14.6, 13.8, 14.0, 14.6, 16.3, 18.6, 15.3, 15.3, 15.7, 10.7, 12.9, 15.3, 13.7, 14.1, 13.7,14.8, 16.8, 16.2, 16.0)
+y=c(11.7,  9.4, 11.0,  9.6,  6.2,  7.4, 12.6,8.2,  9.1,  9.7,  9.6, 11.6,  9.5, 12.1,10.2,  6.1, 11.8,  9.6,  7.4, 10.4)
+w=c(30.1, 30.1, 37.8, 38.3, 34.5, 31.9, 41.2,30.3, 30.0, 30.1, 34.7, 30.8, 30.7, 33.4,30.7, 30.2, 34.0, 33.7, 31.9, 30.7)
+</pre>
+
+<li> Nous allons utiliser la fonction <code>qqnorm</code> pour constuire un diagramme quantile-quantile pour vérifier la normalité.
+Les commandes suivantes nous donne un diagramme quantile-quantile pour  <code>y</code> et superimpose une droite sur le diagramme. L'ordonnée à l'origine de la droite
+est la moyenne et la pente est l'écart type.
+
+<pre>
+> qqnorm(y)
+> abline(mean(y),sd(y))
+</pre>
+
+Voici le diagramme quantile-quantile correspondant. Il y a une tendance linéaire dans le diagramme avec un petit écart aux extrémités. Alors, c'est raisonnable de supposer
+que c'est un échantillon d'une population normale.
+
+<center>
+<img src="./QQy.png" alt="Quantile-quantile plot for y">
+</center>
+
+
+<b>Remarques:</b>
+<ul><li> Nous allons expliquer approximativement la construction du diagramme. A l'axe vertical, nous avons les quantiles de l'échantillons (c-à-d. les n observations).
+Chaque observations a un rang centile. Avec le rang centile, on trouve le quantile correspondant d'une loi normale centrée et réduite. Considérons les statistiques descriptives
+suivantes pour y.
+
+<pre>
+> summary(y)
+   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.
+  6.100   8.875   9.600   9.660  11.150  12.600
+</pre>
+
+Le 50ième centile de l'échantillon est 9,66. Mais le 50ième centile pour une variable normale centrée et réduite est z=0.
+Alors, on fait une correspondance entre 9,66 sur l'axe verticale et 0 sur l'axe horizontale.
+Le 25ième centile de l'échantillon est 8,875. Mais le 25ième centile pour une variable normale centrée et réduite est z=-0,674.
+Alors, on fait une correspondance entre 8,875 sur l'axe verticale et -0,674 sur l'axe horizontale. Et ainsi de suite.
+
+<pre>
+> qnorm(0.25,0,1)
+[1] -0.6744898
+</pre>
+
+<li> Si nous avons un échantillon d'une population normale, alors nous devrons espérer voir une tendance linéaire dans le diagramme (avec une possibilité
+d'un petit écart aux extrémités). Si nous n'observons pas une tendance linéaire dans le diagramme, alors ce n'est pas raisonnable du supposer
+que le vecteur numérique est un échantillon d'une population normale.
+
+<li> Voici les commandes pour constuire un diagramme quantile-quantile pour <code>x</code>.
+On observe une déviation de la droite. Alors, ce n'est pas raisonnable de supposer que <code>x</code> est un échantillon
+aléatoire d'une population normale.
+
+<pre>
+> qqnorm(x)
+> abline(mean(x),sd(x))
+</pre>
+
+
+<center>
+<img src="./QQx.png" alt="Quantile-quantile plot for x">
+</center>
+
+<li> Voici les commandes pour construire un diagramme quantile-quantile pour <code>w</code>.
+On observe une tendance curviligne dans le diagramme. Alors,  ce n'est pas raisonnable de supposer que
+<code>w</code> est un échantillon d'une population normale.
+
+
+<pre>
+> qqnorm(w)
+> abline(mean(w),sd(w))
+</pre>
+
+
+<center>
+<img src="./QQw.png" alt="Quantile-quantile plot for w">
+</center>
+
+
+De son histogramme, on observation que la distribution de <code>w</code> a une très grande asymétrie positive.
+
+<center>
+<img src="./Histw.png" alt="Histogram for w">
+</center>
+
+
+</ul>
+
+
+<li> Considérons les données dans le fichier texte suivant : <a href="./methadone.txt">methadone.txt</a>.
+Nous attribuons les données au jeu de données qu'on nomme <pre>donnees</pre> et nous affichons les noms des colonnnes. Il y a trois colonnes.
+La première est une variable d'identification du patient. Les deux autres sont des scores de douleurs pour le patient sous le placébo et sous la méthadone.
+Alors, chaque patient a deux scores de douleurs. On calcul la différence entre les deux scores de douleurs et on produit un diagramme
+quantile-quantile pour cette différence.
+
+
+<pre>
+> donnees=read.table(file.choose(),header=TRUE,sep="\t")
+> names(donnees)
+[1] "patient"   "placebo"   "methadone"
+> d=donnees$placebo-donnees$methadone
+> qqnorm(d)
+> abline(mean(d),sd(d))
+</pre>
+
+Voici le diagramme quantile-quantile pour la différence des scores de douleurs.  Il y a une tendance linéaire dans le diagramme. Alors, c'est raisonnable
+de supposer que la différence entre les scores de douleurs est normalement distribuée.
+
+
+<center>
+<img src="./QQd.png" alt="QQ-plot for d">
+</center>
+
+
+<li> R n'a pas de fonction dans la base pour construire un diagramme de probabilité à l'échelle normale. Mais, nous avons écrit une fonction pour vous.
+Elle est dans le fichier <a href="./plots.r">plots.r</a>. Nous allons importer ce fichier. Le fichier contient la fonction <code>ppnorm</code>.
+
+<br><Br>
+
+Avec la commande suivante, nous allons importer le fichier <pre>plots.r</pre> et vérifier que le fichier fut bien importé en utilisant la commande <code>ppnorm</code>.
+
+<pre>
+> source(file.choose())
+> ppnorm
+function(x, ...)  UseMethod("ppnorm")
+</pre>
+
+<b>Remarque :</b> Si nous avons bien importé le fichier <code>plots.r</code>, alors
+on devrait voir  <code>function(x, ...)  UseMethod("ppnorm")</code>, après avoir entrer la commande <pre>ppnorm</pre> à l'invite.
+L'utilisation de la fonction est <code>ppnorm(x)</code>, où <code>x</code> est un vecteur numérique.
+
+<li> Voici les diagrammes de probabilité pour <code>x</code>, <code>y</code> et  <code>w.</code> Le diagramme à probabilité à l'échelle normale est semblable
+au diagramme quantile-quantile, mais les quantiles de l'échantillon sont à l'axe horizontale et les quantiles théoriques sont à l'axe verticale (en outre on affiche
+la probabilité au lieu de la valeur du z, on a 50% à z=0 et 95% à z=1,645). Alors, les diagrammes sont équivalents. Mais la droite superimposée utilise -(moyenne/écart type)
+pour l'ordonnée à l'origine et 1/(écart type) pour la pente.
+
+<pre>
+> ppnorm(x)
+</pre>
+
+<center>
+<img src="./PPx.png" alt="Normal probability plot for x">
+</center>
+
+
+<pre>
+> ppnorm(y)
+</pre>
+
+<center>
+<img src="./PPy.png" alt="Normal probability plot for y">
+</center>
+
+<pre>
+> ppnorm(w)
+</pre>
+
+<center>
+<img src="./PPw.png" alt="Normal probability plot for x">
+</center>
+
+
+
+
+
+
+
+
+</ul>
+
+
+
+
+<BR><BR>
+
+
+<BR><BR>
+
+<hr>
+<BR><BR>
+
+<a name="example13">
+<h2><b><center>
+Comparaison de moyennes de populations indépendantes avec la fonction t.test
+</center></h2>
+</b>
+<BR><BR>
+
+<b>Vidéo éducationnelle:</b> <a href="https://www.youtube.com/watch?v=cU1AaCbptgQ&feature=youtu.be" target="_blank">Deux populations indépendantes</a>
+
+
+<BR><BR>
+<b>Sommaire de la vidéo:</b>
+
+<ul><li> We will assume that you assigned your data to two numerical vectors, say <code>x1</code> and <code>x2</code>. We will
+use the <code>t.test</code> to test the equality of means. Its usage is
+<pre>
+t.test(x1,x2)
+</pre>
+
+<b>Remarks:</b>
+<ul><li> By default, it is  testing the null hypothesis that the means are equal against a two-sided alternative that the means are different.
+To use a one-sided alternative, we can add an argument.
+<ul><li> To use a right-sided alternative (i.e. mu1 > m2), add the argument: <code>alternative="greater"</code>
+<li> To use a left-sided alternative (i.e. mu1 < m2), add the argument: <code>alternative="less"</code>
+</ul>
+
+<li>
+
+
+
+
+</ul>
+
+
+
+
+
+
+<BR><BR><BR><BR>
+
+
+
+
+
+
+
+
+<hr>
+
+<a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="Creative Commons License" style="border-width:0"
+src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license"
+href="http://creativecommons.org/licenses/by-nc-nd/4.0/">Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License</a>.
+
+
+<BR><BR>
+
+
+<iframe
+src ="http://aix1.uottawa.ca/cgi-bin/cgiwrap/~glamothe/counterFR.pl"
+width="100%">
+</iframe>
+
+
+
+
+
+</body>
+</html>
